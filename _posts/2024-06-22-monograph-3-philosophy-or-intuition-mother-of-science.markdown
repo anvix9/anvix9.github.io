@@ -74,7 +74,7 @@ Believe it or not, philosophy was present in the example we shared earlier.
 </p>
 
 <p style="text-align: justify;">
-Philosophy is this approach that helps us continuously challenge not only our current states and values but also the line of our evolution. When put it strctly, philosophy is the continuous onlooking of the correct justifications of our actions. Because first, our actions result from our perceptions of the world (both in and outside) and second, we could also consider the false justifications, but they do not help an individual challenge and go beyond what is known therefore not fulfilling the objective of philosophy. Someone living on false justifications, live within certain restricted bounds which does not help in any way go beyond those boundaries. 
+Philosophy is this approach that helps us continuously challenge not only our current states and values but also the line of our evolution. When put it strctly, philosophy is the <mark> continuous onlooking of the correct justifications of our actions</mark>. Because first, our actions result from our perceptions of the world (both in and outside) and second, we could also consider the false justifications, but they do not help an individual challenge and go beyond what is known therefore not fulfilling the objective of philosophy. Someone living on <mark>false</mark> justifications, live within certain restricted bounds which does not help in any way go beyond those boundaries. 
 
 </p>
 <br/>
@@ -86,7 +86,7 @@ We can argue about the quality of those instructions, recommendations, and guida
 
 <br/>
 <p style="text-align: justify;">
-So for an individual, Philosophy has been part of and integrated into his life, consciously or not. But when it comes to a scientist, the question becomes extremely urgent.  It becomes urgent because, as a scientist, being at the borderline of what is known and unknown is exactly his reality. Pushing forward in favor of the known necessitates examining and understanding in depth the groundings of society and at the granular level its own perceptions. Because, the directions taken by him should not be biased by its own perceptions (taken from society since then), but rather must reflect the reality as it is, in other words, the transparency of the scientist must be as such that its own philosophy matches "what it is", reality. Which means that the justifications of his actions must be aligned with the reality as much as possible. 
+So for an individual, philosophy has been part of and integrated into his life, consciously or not. But when it comes to a scientist, the question becomes extremely urgent.  It becomes urgent because, as a scientist, being at the borderline of what is known and unknown is exactly a brutal fact. Pushing forward in favor of the known necessitates examining and understanding in depth the groundings of society and at the granular level its own perceptions. Because, the directions taken by him should not be biased by its own perceptions (taken from society since then), but rather must <mark>reflect</mark> the reality as it is, in other words, the transparency of the scientist must be as such that its own philosophy matches "what it is", reality. Which means that the justifications of his actions must be aligned with the reality as much as possible. 
 </p>
  
 
@@ -95,7 +95,14 @@ So for an individual, Philosophy has been part of and integrated into his life, 
 Is the research direction aligning with a possible evolution of our understanding of the world as it is or is it just a biased caprice or constraint imposed by either the scientist or his society?
 The idea of understanding the world is matching transparency, transparency in a sense that what is provided as solution (which is in fact, the perception of the scientist) is just a proof of Nature and its law fully understood, therefore there is no difference between the perception of the scientist and reality. The full reliability of the scientist lies in this alignment.
 </p>
- 
+ <br/>
+<figure style="text-align: center;">
+    <img src="https://raw.githubusercontent.com/Anvi98/anvi98.github.io/master/assets/images/mono3_example.gif" alt="Flower" width="300"/>
+    <br />
+    <figcaption>Fig.2: At the border (by master1305plus).
+    </figcaption>
+</figure>
+<br/>
 
 <br/>
 <p style="text-align: justify;">
