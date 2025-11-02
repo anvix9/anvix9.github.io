@@ -93,7 +93,7 @@ So for an individual, philosophy has been part of and integrated into his life, 
 <br/>
 <p style="text-align: justify;">
 Is the research direction aligning with a possible evolution of our understanding of the world as it is or is it just a biased caprice or constraint imposed by either the scientist or his society?
-The idea of understanding the world is matching transparency, transparency in a sense that what is provided as solution (which is in fact, the perception of the scientist) is just a proof of Nature and its law fully understood, therefore there is no difference between the perception of the scientist and reality. The full reliability of the scientist lies in this alignment.
+The idea of understanding the world is matching transparency, transparency in a sense that what is provided as solution (which is in fact, the perception of the scientist) is just a proof of Nature and its law fully understood, therefore there is no difference between the perception of the scientist and reality. <mark>The full reliability of the scientist lies in this alignment</mark>.
 </p>
  <br/>
 <figure style="text-align: center;">
@@ -119,7 +119,7 @@ What becomes then the reference for the scientist to assess his growth, his dire
 
 <br/>
 <p style="text-align: justify;">
-As we realize now, this question becomes tricky as we have to go into other concepts that are linked to the bottom of our lives. Which are “bad,”  “good,”  “wrong,”  “right,”  “true,”  “false,”, "relevant", "useless", "evil", "holy" …
+As we realize now, this question becomes tricky as we have to go into other concepts that are linked to the bottom of our lives. Which are “bad”,  “good”,  “wrong”,  “right”,  “true”,  “false”, "relevant", "useless", "evil", "holy", …
 </p>
  
 
