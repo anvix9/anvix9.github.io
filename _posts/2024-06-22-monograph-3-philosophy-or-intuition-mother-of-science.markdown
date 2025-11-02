@@ -2,7 +2,7 @@
 layout: post
 title:  "Monograph #3: Philosophy or intuition, Mother of Science."
 date:   2024-06-22
-last_modified_at: 2025-11-0
+last_modified_at: 2025-11-02
 categories: [Philosophy of science]
 tags: [Philosophy of science, AI, Machine learning, science, reality]
 ---
