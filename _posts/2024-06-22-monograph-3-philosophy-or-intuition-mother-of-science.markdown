@@ -2,9 +2,9 @@
 layout: post
 title:  "Monograph #3: Philosophy or intuition, Mother of Science."
 date:   2024-06-22
-last_modified_at: 2024-08-01
+last_modified_at: 2025-11-0
 categories: [Philosophy of science]
-tags: [Philosophy of science, AI, Machine learning, science]
+tags: [Philosophy of science, AI, Machine learning, science, reality]
 ---
 
 <br/><br/>
@@ -14,7 +14,7 @@ tags: [Philosophy of science, AI, Machine learning, science]
 - [Monograph #1: Genesis of Science and relationship with AI.]({% link _posts/2024-01-03-monograph-1-Genesis-of-science-and-relationship-with-artificial-intelligence.markdown %})
 - [Monograph #2: Representations – Far from Reality, Yet So Close Ever…]({% link _posts/2024-02-26-monograph-2-Representations-far-from-reality-yet-so-close-ever.markdown %})
 - <strong>[Monograph #3: Philosophy or intuition, Mother of Science.]({% link _posts/2024-06-22-monograph-3-philosophy-or-intuition-mother-of-science.markdown %})</strong>
-- [Monograph #4: Art and Religion, where are you?]({% link _posts/2024-08-01-monograph-4-art-and-religion-where-are-you.markdown %})
+- [Monograph #4: Art and Religion, where are you?]({% link _posts/2024-08-01-monograph-4-art-and-religion-where-are-you?.markdown %})
 <br/><br/>
 
 # Introduction
@@ -74,43 +74,51 @@ Believe it or not, philosophy was present in the example we shared earlier.
 </p>
 
 <p style="text-align: justify;">
-Philosophy is this approach that helps us continuously challenge not only our current states and values but also the line of our evolution. When we were kids up to our early adulthood, Philosophy was represented by all those instructions, recommendations, and guidance coming from our environment. They were there to help us assess the quality of our state and growth in society by comparison to what was there and is still relevant, a concept of “similarity” that is well-known in artificial intelligence.
+Philosophy is this approach that helps us continuously challenge not only our current states and values but also the line of our evolution. When put it strctly, philosophy is the continuous onlooking of the correct justifications of our actions. Because first, our actions result from our perceptions of the world (both in and outside) and second, we could also consider the false justifications, but they do not help an individual challenge and go beyond what is known therefore not fulfilling the objective of philosophy. Someone living on false justifications, live within certain restricted bounds which does not help in any way go beyond those boundaries. 
+
+</p>
+<br/>
+<p style="text-align: justify;">
+When we were kids up to our early adulthood, Philosophy was represented by all those instructions, recommendations, and guidance coming from our environment. They were there to help us assess the quality of our state and growth in society by comparison to what was there and is still relevant, a concept of “similarity” that is well-known in artificial intelligence. 
+We can argue about the quality of those instructions, recommendations, and guidance, but they were there to help us grow as individuals in our societies.
 </p>
  
 
 <br/>
 <p style="text-align: justify;">
-So for an individual, Philosophy has been part of and integrated into his life, consciously or not. But when it comes to a scientist, the question becomes extremely urgent.  It becomes urgent because, as a scientist who has already acknowledged his limits in terms of knowledge, continuous learning becomes crucial. Learning and <mark>“learning to unlearn”</mark> every moment becomes exactly the path of a scientist.
+So for an individual, Philosophy has been part of and integrated into his life, consciously or not. But when it comes to a scientist, the question becomes extremely urgent.  It becomes urgent because, as a scientist, being at the borderline of what is known and unknown is exactly his reality. Pushing forward in favor of the known necessitates examining and understanding in depth the groundings of society and at the granular level its own perceptions. Because, the directions taken by him should not be biased by its own perceptions (taken from society since then), but rather must reflect the reality as it is, in other words, the transparency of the scientist must be as such that its own philosophy matches "what it is", reality. Which means that the justifications of his actions must be aligned with the reality as much as possible. 
 </p>
  
 
 <br/>
 <p style="text-align: justify;">
-This expression “learn to unlearn” then is just the consequence of Philosophy. For a scientist, Philosophy never stops. Every moment, he has to question not only himself, but also the direction of his works, and all the things that brought him to be who he is currently at any moment.
+Is the research direction aligning with a possible evolution of our understanding of the world as it is or is it just a biased caprice or constraint imposed by either the scientist or his society?
+The idea of understanding the world is matching transparency, transparency in a sense that what is provided as solution (which is in fact, the perception of the scientist) is just a proof of Nature and its law fully understood, therefore there is no difference between the perception of the scientist and reality. The full reliability of the scientist lies in this alignment.
 </p>
  
 
 <br/>
 <p style="text-align: justify;">
-If this process of questioning and self-evaluation has to happen continuously for a scientist, then how does the comparison, which is crucial for growth, however we define it, happen? In the first phase, this was related to the expectations of society and our environment. But at a certain point, the scientist reaches the stage where he might <mark>break</mark> the expectations of society to continue the learning process. This is generally crucial for new knowledge to enter the world.
+Here becomes clear the real objective of a scientist through his aim of providing solutions to society. Cleanup what is not part of reality: preconceptions, misconceptions, biases, dogmas, beliefs, anything pushing him farther from what could be reality as it is.
+For such reason, a scientist finds himself mostly lost due to the facts that for very good moments, its own basis are shaked without solid references to rely on at the borderline of the known and unknown.
 </p>
  
 
 <br/>
 <p style="text-align: justify;">
-What becomes then the reference for the scientist to assess his growth if he has to go beyond those set by his society? In Artificial intelligence is there any model that goes beyond the capacity of any cost function defined?
+What becomes then the reference for the scientist to assess his growth, his directions if he has to go beyond those set by his society? In Artificial intelligence is there any model that goes beyond the behaviors of any cost function defined?
 </p>
  
 
 <br/>
 <p style="text-align: justify;">
-As we realize now, this question becomes tricky as we have to go into other concepts that are linked to the bottom of our lives. Which are “bad,”  “good,”  “wrong,”  “right,”  “true,”  “false,”  etc…
+As we realize now, this question becomes tricky as we have to go into other concepts that are linked to the bottom of our lives. Which are “bad,”  “good,”  “wrong,”  “right,”  “true,”  “false,”, "relevant", "useless", "evil", "holy" …
 </p>
  
 
 <br/>
 <p style="text-align: justify;">
-Philosophy is to assess all those elements at the same time to push forward our understanding of life, by so doing us. But who or what defines those elements? How the assessments of such elements be done beyond the realm and capacity of society’s expectations, can such growth happen beyond society’s expectations?
+Philosophy is to assess all those elements at the same time to push forward our understanding of life, by so doing, us. But who or what defines those elements? How the assessments of such elements be done beyond the realm and capacity of society’s expectations, can such growth happen beyond society’s expectations?
 </p>
 
 <br/><br/>
