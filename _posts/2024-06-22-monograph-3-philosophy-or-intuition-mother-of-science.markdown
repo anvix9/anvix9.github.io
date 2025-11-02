@@ -97,7 +97,7 @@ The idea of understanding the world is matching transparency, transparency in a 
 </p>
  <br/>
 <figure style="text-align: center;">
-    <img src="https://raw.githubusercontent.com/Anvi98/anvi98.github.io/master/assets/images/mono3_example.gif" alt="Flower" width="300"/>
+    <img src="https://github.com/anvix9/anvix9.github.io/blob/main/assets/images/silhouette-man-walking-night-toward-light-view.jpg" alt="At the Borders" width="300"/>
     <br />
     <figcaption>Fig.2: At the border (by master1305plus).
     </figcaption>
