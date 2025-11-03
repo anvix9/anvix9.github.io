@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "executioner and prisoner"
+title:  "Executioner and prisoner"
 date:   2025-11-02
 last_modified_at: 2025-11-02
 categories: [Collections]
