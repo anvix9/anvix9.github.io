@@ -22,9 +22,9 @@ We are executioners because, in reality, and sometimes without meaning to, we wa
 <br/>
 
 <figure style="text-align: center;">
-<img src="https://raw.githubusercontent.com/Anvi98/anvi98.github.io/master/assets/images/faded_memories_by_berkozturk.jpg" alt="Repeat image" width="300"/>
+<img src="https://raw.githubusercontent.com/anvix9/anvix9.github.io/refs/heads/main/assets/images/saint_francis_1635.png" alt="Repeat image" width="300"/>
     <br />    
-    <figcaption>In Roman Osteria - Carl Bloch 1866. 
+    <figcaption>Saint Francis in Meditation - 1635. 
     </figcaption>
 </figure>
 
