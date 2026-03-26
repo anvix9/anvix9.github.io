@@ -12,5 +12,8 @@
 - title: 'Experiments'
   url: 'experiments'
 
+- title: 'Portfolio'
+  url: 'portfolio'
+
 - default: menu_about
   url: 'about'
