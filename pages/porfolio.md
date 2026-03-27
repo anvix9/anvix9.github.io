@@ -169,7 +169,7 @@ ______
 <p style="text-align: justify;">The classroom operates as a collaborative environment on Hugging Face, where student groups build and deploy their own models — from data curation to API serving.</p>
 
 <br/>
-**Links:** [UMSA Classroom on Hugging Face](https://huggingface.co/umsa-v1) (15 models, 20 datasets, 22 students)
+**Links:** [UMSA Classroom on Hugging Face](https://huggingface.co/umsa-v1) (22 students)
 
 <br/>
 ### Master's Workshop — NVIDIA NeMo Curator Pipeline
