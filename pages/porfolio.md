@@ -18,6 +18,7 @@ ______
 
 ## Featured Work — ReSynth
 
+<br/>
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
 
 <figure style="text-align: center;">
@@ -44,12 +45,14 @@ ______
 
 <p style="text-align: justify;">An interactive evaluation demo is available — it walks through the paper's genealogy from psychology to AI, the rote learning reappraisal, the structural diagnosis of each paradigm, and the ReSynth trimodular architecture. It also includes an interactive scoring tool for reviewers and readers to assess the work across six criteria.</p>
 
+<br/>
 **Links:** [arXiv](https://arxiv.org/abs/2603.18203) · [PDF](https://arxiv.org/pdf/2603.18203) · [Evaluation Demo](https://github.com/anvix9/resynth-evaluation-demo/tree/main)
 
 ______
 
 ## Research Projects
 
+<br/>
 ### Question-Knowledge Compression RAG
 
 *Enhancing Multihop Document Retrieval without Fine-tuning*
@@ -71,10 +74,12 @@ ______
 
 **Pipeline:** Paper Input (2–70 MB) → Section Extraction → Question Generation → Paper-Card (~5 KB) → Syntactic Reranking → Result
 
+<br/>
 **Links:** [GitHub](https://github.com/anvix9/question-knowledge-compression-rag) · [Paper (Preprint)](https://doi.org/10.20944/preprints202601.1757.v2)
 
 ______
 
+<br/>
 ### Haut
 
 *Research Search Engine for Literature Reviews*
@@ -89,10 +94,12 @@ ______
 
 <p style="text-align: justify;">It introduces a semantic chunking system based on <i>question anchors</i> with a FlashRank reranking method. The compression is drastic: initial texts of 2–70 MB reduce to approximately 1 KB per file in the vector database, with response quality comparable to traditional methods.</p>
 
+<br/>
 **Links:** [GitHub](https://github.com/anvix9/haut)
 
 ______
 
+<br/>
 ### Sherlock-lit
 
 *Python Package for Research Paper Analysis*
@@ -105,10 +112,12 @@ $ sherlock_lit paper.pdf
 # → Generates a markdown card in card-papers/
 ```
 
+<br/>
 **Links:** [GitHub](https://github.com/anvix9/sherlock-lit) · [PyPI](https://pypi.org/project/sherlock-lit/)
 
 ______
 
+<br/>
 ## Other Projects
 
 <p style="text-align: justify;"><b>Convolution in C++</b> — From-scratch implementation of 2D convolution using C++ template metaprogramming. An educational deep-dive into the fundamental operations underlying CNNs. <a href="https://github.com/anvix9/convolution">GitHub</a> · <a href="https://anvix9.github.io/2024/08/08/Experiment-1-2D-Convolution-in-C++-from-scratch-with-intuition">Blog Post</a></p>
@@ -149,27 +158,34 @@ ______
 
 <p style="text-align: justify;">Teaching, to me, is not about transferring information — it is about transferring the desire to investigate. The courses I design are built around that principle: give students real tools, real problems, and real constraints, and let the curiosity do the rest.</p>
 
-### Professor — M.Sc. in Artificial Intelligence
+<br/>
+### Professor - M.Sc. in Artificial Intelligence
 
+<br/>
 **Universidad Mayor de San Andrés (UMSA)**, La Paz, Bolivia — *Feb 2025 – Present*
 
 <p style="text-align: justify;">Four modules spanning business strategy and AI ecosystems, ETL pipeline development (Scrapy, Pandas, SQL), NLP fundamentals from Bag of Words to Transformers with practical RAG system building, and advanced model optimization covering NeMo Curator, fine-tuning, distillation, pruning, and quantization.</p>
 
 <p style="text-align: justify;">The classroom operates as a collaborative environment on Hugging Face, where student groups build and deploy their own models — from data curation to API serving.</p>
 
+<br/>
 **Links:** [UMSA Classroom on Hugging Face](https://huggingface.co/umsa-v1) (15 models, 20 datasets, 22 students)
 
+<br/>
 ### Master's Workshop — NVIDIA NeMo Curator Pipeline
 
+<br/>
 **UMSA**, La Paz, Bolivia — *Dec 2–3, 2025*
 
-### Invited Speaker — AI in Social Sciences
+### Invited Speaker - AI in Social Sciences
+<br/>
 
 **UNAM Conference**, Mexico City — *Nov 25, 2025*
 
 <p style="text-align: justify;">Topic: Intersection between Social Sciences and Artificial Intelligence — Exploring the link between social sciences and advanced technology.</p>
 
-### Invited Speaker — Role of Semantics in AI
+<br/>
+### Invited Speaker - Role of Semantics in AI
 
 **EVCCCPLN** — *Jul 2024*
 
