@@ -200,7 +200,7 @@ ______
 
 - **Ph.D. in Natural Language Processing** — Instituto Politécnico Nacional (CIC), Mexico City — *2023 – Present*
 - **M.Sc. in Software Engineering** (GPA 3.8/4.0) — Near East University, Cyprus — *2020 – 2023*
-- **B.Sc. in Computer Science** (GPA 7.2/10) — Valoris International University — *2016 – 2020*
+<!-- - **B.Sc. in Computer Science** (GPA 7.2/10) — Valoris International University — *2016 – 2020* -->
 
 ______
 
