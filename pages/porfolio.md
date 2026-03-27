@@ -20,25 +20,27 @@ ______
 
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
 
+<br/>
+
 <figure style="text-align: center;">
-    <img src="https://static.scientificamerican.com/sciam/cache/file/3EFBCA5A-A91F-4FFC-9462684B268D2719_source.png?w=1200" alt="Philosopher in Meditation" width="450"/>
+    <img src="https://static.scientificamerican.com/sciam/cache/file/3EFBCA5A-A91F-4FFC-9462684B268D2719_source.png?w=1200" alt="Philosopher in Meditation" width="300"/>
     <figcaption>Fig.2: Tiles Theory.</figcaption>
 </figure>
 <br/>
 
-<p style="text-align: justify;">This paper is, in many ways, the philosophical backbone behind everything else on this page. It asks a question that is rarely posed in our field: what if the limitations we observe in current AI systems are not merely technical — but inherited? Inherited from the very psychological theories that inspired them.</p>
+<p style="text-align: justify;">This paper is, in many ways, the philosophical backbone behind everything else on this page. It asks a question that is rarely posed in our field: what if the limitations we observe in current AI systems are not merely technical, but inherited? Inherited from the very psychological theories that inspired them.</p>
 
 <p style="text-align: justify;">Behaviorism gave us reinforcement learning, but also its blindness to the internal structure of knowledge. Cognitivism gave rise to deep learning, but compressed representations into opaque parameter spaces that resist principled update. Constructivism influenced curriculum learning, yet we still lack a formal account of how new understanding is constructed from existing components.</p>
 
-<p style="text-align: justify;">The paper traces this genealogy — from psychological paradigm to AI method — and diagnoses the structural constraints each paradigm carried into its artificial offspring. It also examines a cross-cultural divergence in the interpretation of rote learning: the Eastern conception of memorization as a structured, multi-phase precursor to understanding offers a bridge between psychological theory and AI methodology that remains largely unexploited.</p>
+<p style="text-align: justify;">The paper traces this genealogy from psychological paradigm to AI method, and diagnoses the structural constraints each paradigm carried into its artificial offspring. It also examines a cross-cultural divergence in the interpretation of rote learning: the Eastern conception of memorization as a structured, multi-phase precursor to understanding offers a bridge between psychological theory and AI methodology that remains largely unexploited.</p>
 
 <p style="text-align: justify;">From this analysis emerges <b>ReSynth</b>, a trimodular framework that separates three architecturally independent components:</p>
 
-- **Intellect** — the reasoning mechanism
-- **Identity** — the purpose and directional coherence
-- **Memory** — the knowledge substrate
+- **Intellect** - the reasoning mechanism
+- **Identity** - the purpose and directional coherence
+- **Memory** - the knowledge substrate
 
-<p style="text-align: justify;">The central argument is that adaptability — the challenge at the heart of artificial general intelligence — requires a representational architecture in which systematic behavior is a <i>necessary consequence</i> rather than an accidental property.</p>
+<p style="text-align: justify;">The central argument is that adaptability, the challenge at the heart of artificial general intelligence requires a representational architecture in which systematic behavior is a <i>necessary consequence</i> rather than an accidental property.</p>
 
 <p style="text-align: justify;">A white paper expanding this framework is currently in preparation.</p>
 
@@ -118,7 +120,7 @@ ______
 ## Publications
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/A_Philosopher_Lecturing_on_the_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Wright_of_Derby%2C_The_Orrery.jpg/3840px-Wright_of_Derby%2C_The_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="450"/>
     <figcaption>Fig.4: A Philosopher Lecturing on the Orrery — Joseph Wright of Derby, 1766.</figcaption>
 </figure>
 <br/>
@@ -176,7 +178,7 @@ ______
 ## Education
 
 <figure style="text-align: center;">
-    <img src="https://es.wikipedia.org/wiki/El_astr%C3%B3nomo#/media/Archivo:Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Johannes_Vermeer_-_The_Astronomer_-_1668.jpg/3840px-Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="450"/>
     <figcaption>Fig.6: The Astronomer — Johannes Vermeer, 1668.</figcaption>
 </figure>
 <br/>
