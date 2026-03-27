@@ -4,10 +4,8 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-# Portfolio
-
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg" alt="Wanderer above the Sea of Fog" width="300"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg" alt="Wanderer above the Sea of Fog" width="450"/>
     <figcaption>Fig.1: Wanderer above the Sea of Fog — Caspar David Friedrich, 1818.</figcaption>
 </figure>
 <br/>
@@ -18,13 +16,13 @@ This page gathers research, tools, teaching, and the traces of that process.
 
 ______
 
-## Featured Work — ReSynth
+## Recent Work - ReSynth
 
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Rembrandt_Harmensz._van_Rijn_038.jpg" alt="Philosopher in Meditation" width="300"/>
-    <figcaption>Fig.2: Philosopher in Meditation — Rembrandt van Rijn, 1632.</figcaption>
+    <img src="https://static.scientificamerican.com/sciam/cache/file/3EFBCA5A-A91F-4FFC-9462684B268D2719_source.png?w=1200" alt="Philosopher in Meditation" width="450"/>
+    <figcaption>Fig.2: Tiles Theory.</figcaption>
 </figure>
 <br/>
 
@@ -80,7 +78,7 @@ ______
 *Research Search Engine for Literature Reviews*
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/archive/9/9c/20170902010738%21Joseph_Wright_of_Derby_The_Alchemist.jpg" alt="The Alchemist Discovering Phosphorus" width="300"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/archive/9/9c/20170902010738%21Joseph_Wright_of_Derby_The_Alchemist.jpg" alt="The Alchemist Discovering Phosphorus" width="450"/>
     <figcaption>Fig.3: The Alchemist Discovering Phosphorus — Joseph Wright of Derby, 1771.</figcaption>
 </figure>
 <br/>
@@ -120,7 +118,7 @@ ______
 ## Publications
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/A_Philosopher_Lecturing_on_the_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="300"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/A_Philosopher_Lecturing_on_the_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="450"/>
     <figcaption>Fig.4: A Philosopher Lecturing on the Orrery — Joseph Wright of Derby, 1766.</figcaption>
 </figure>
 <br/>
@@ -142,7 +140,7 @@ ______
 ## Teaching & Talks
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg" alt="The School of Athens" width="300"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg" alt="The School of Athens" width="450"/>
     <figcaption>Fig.5: The School of Athens — Raphael, 1511.</figcaption>
 </figure>
 <br/>
@@ -178,7 +176,7 @@ ______
 ## Education
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="300"/>
+    <img src="https://es.wikipedia.org/wiki/El_astr%C3%B3nomo#/media/Archivo:Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="450"/>
     <figcaption>Fig.6: The Astronomer — Johannes Vermeer, 1668.</figcaption>
 </figure>
 <br/>
