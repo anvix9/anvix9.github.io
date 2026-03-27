@@ -4,8 +4,10 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
+# Portfolio
+
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg" alt="Wanderer above the Sea of Fog" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg" alt="Wanderer above the Sea of Fog" width="300"/>
     <figcaption>Fig.1: Wanderer above the Sea of Fog — Caspar David Friedrich, 1818.</figcaption>
 </figure>
 <br/>
@@ -16,35 +18,35 @@ This page gathers research, tools, teaching, and the traces of that process.
 
 ______
 
-## Recent Work - ReSynth
+## Featured Work — ReSynth
 
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
 
-<br/>
-
 <figure style="text-align: center;">
-    <img src="https://static.scientificamerican.com/sciam/cache/file/3EFBCA5A-A91F-4FFC-9462684B268D2719_source.png?w=1200" alt="Philosopher in Meditation" width="300"/>
-    <figcaption>Fig.2: Tiles Theory.</figcaption>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Rembrandt_Harmensz._van_Rijn_038.jpg" alt="Philosopher in Meditation" width="300"/>
+    <figcaption>Fig.2: Philosopher in Meditation — Rembrandt van Rijn, 1632.</figcaption>
 </figure>
 <br/>
 
-<p style="text-align: justify;">This paper is, in many ways, the philosophical backbone behind everything else on this page. It asks a question that is rarely posed in our field: what if the limitations we observe in current AI systems are not merely technical, but inherited? Inherited from the very psychological theories that inspired them.</p>
+<p style="text-align: justify;">This paper is, in many ways, the philosophical backbone behind everything else on this page. It asks a question that is rarely posed in our field: what if the limitations we observe in current AI systems are not merely technical — but inherited? Inherited from the very psychological theories that inspired them.</p>
 
 <p style="text-align: justify;">Behaviorism gave us reinforcement learning, but also its blindness to the internal structure of knowledge. Cognitivism gave rise to deep learning, but compressed representations into opaque parameter spaces that resist principled update. Constructivism influenced curriculum learning, yet we still lack a formal account of how new understanding is constructed from existing components.</p>
 
-<p style="text-align: justify;">The paper traces this genealogy from psychological paradigm to AI method, and diagnoses the structural constraints each paradigm carried into its artificial offspring. It also examines a cross-cultural divergence in the interpretation of rote learning: the Eastern conception of memorization as a structured, multi-phase precursor to understanding offers a bridge between psychological theory and AI methodology that remains largely unexploited.</p>
+<p style="text-align: justify;">The paper traces this genealogy — from psychological paradigm to AI method — and diagnoses the structural constraints each paradigm carried into its artificial offspring. It also examines a cross-cultural divergence in the interpretation of rote learning: the Eastern conception of memorization as a structured, multi-phase precursor to understanding offers a bridge between psychological theory and AI methodology that remains largely unexploited.</p>
 
 <p style="text-align: justify;">From this analysis emerges <b>ReSynth</b>, a trimodular framework that separates three architecturally independent components:</p>
 
-- **Intellect** - the reasoning mechanism
-- **Identity** - the purpose and directional coherence
-- **Memory** - the knowledge substrate
+- **Intellect** — the reasoning mechanism
+- **Identity** — the purpose and directional coherence
+- **Memory** — the knowledge substrate
 
-<p style="text-align: justify;">The central argument is that adaptability, the challenge at the heart of artificial general intelligence requires a representational architecture in which systematic behavior is a <i>necessary consequence</i> rather than an accidental property.</p>
+<p style="text-align: justify;">The central argument is that adaptability — the challenge at the heart of artificial general intelligence — requires a representational architecture in which systematic behavior is a <i>necessary consequence</i> rather than an accidental property.</p>
 
 <p style="text-align: justify;">A white paper expanding this framework is currently in preparation.</p>
 
-**Links:** [arXiv](https://arxiv.org/abs/2603.18203) · [PDF](https://arxiv.org/pdf/2603.18203)
+<p style="text-align: justify;">An interactive evaluation demo is available — it walks through the paper's genealogy from psychology to AI, the rote learning reappraisal, the structural diagnosis of each paradigm, and the ReSynth trimodular architecture. It also includes an interactive scoring tool for reviewers and readers to assess the work across six criteria.</p>
+
+**Links:** [arXiv](https://arxiv.org/abs/2603.18203) · [PDF](https://arxiv.org/pdf/2603.18203) · [Evaluation Demo](https://github.com/anvix9/resynth-evaluation-demo/tree/main)
 
 ______
 
@@ -80,7 +82,7 @@ ______
 *Research Search Engine for Literature Reviews*
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/archive/9/9c/20170902010738%21Joseph_Wright_of_Derby_The_Alchemist.jpg" alt="The Alchemist Discovering Phosphorus" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/archive/9/9c/20170902010738%21Joseph_Wright_of_Derby_The_Alchemist.jpg" alt="The Alchemist Discovering Phosphorus" width="300"/>
     <figcaption>Fig.3: The Alchemist Discovering Phosphorus — Joseph Wright of Derby, 1771.</figcaption>
 </figure>
 <br/>
@@ -120,7 +122,7 @@ ______
 ## Publications
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Wright_of_Derby%2C_The_Orrery.jpg/3840px-Wright_of_Derby%2C_The_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/A_Philosopher_Lecturing_on_the_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="300"/>
     <figcaption>Fig.4: A Philosopher Lecturing on the Orrery — Joseph Wright of Derby, 1766.</figcaption>
 </figure>
 <br/>
@@ -142,7 +144,7 @@ ______
 ## Teaching & Talks
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg" alt="The School of Athens" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg" alt="The School of Athens" width="300"/>
     <figcaption>Fig.5: The School of Athens — Raphael, 1511.</figcaption>
 </figure>
 <br/>
@@ -178,7 +180,7 @@ ______
 ## Education
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Johannes_Vermeer_-_The_Astronomer_-_1668.jpg/3840px-Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="450"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="300"/>
     <figcaption>Fig.6: The Astronomer — Johannes Vermeer, 1668.</figcaption>
 </figure>
 <br/>
