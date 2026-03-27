@@ -161,7 +161,7 @@ ______
 ### Professor - M.Sc. in Artificial Intelligence
 
 <br/>
-**Universidad Mayor de San Andrés (UMSA)**, La Paz, Bolivia — *Feb 2025 – Present*
+**Universidad Mayor de San Andrés (UMSA)**, La Paz, Bolivia — *Feb 2025 – Feb 2026*
 
 <p style="text-align: justify;">Four modules spanning business strategy and AI ecosystems, ETL pipeline development (Scrapy, Pandas, SQL), NLP fundamentals from Bag of Words to Transformers with practical RAG system building, and advanced model optimization covering NeMo Curator, fine-tuning, distillation, pruning, and quantization.</p>
 
