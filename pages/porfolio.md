@@ -16,7 +16,7 @@ This page gathers research, tools, teaching, and the traces of that process.
 
 ______
 
-## Featured Work - ReSynth
+## Featured Work: ReSynth
 
 <br/>
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
