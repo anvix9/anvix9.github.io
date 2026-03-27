@@ -16,7 +16,7 @@ This page gathers research, tools, teaching, and the traces of that process.
 
 ______
 
-## Featured Work — ReSynth
+## Featured Work - ReSynth
 
 <br/>
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
@@ -27,23 +27,23 @@ ______
 </figure>
 <br/>
 
-<p style="text-align: justify;">This paper is, in many ways, the philosophical backbone behind everything else on this page. It asks a question that is rarely posed in our field: what if the limitations we observe in current AI systems are not merely technical — but inherited? Inherited from the very psychological theories that inspired them.</p>
+<p style="text-align: justify;">This paper is, in many ways, the philosophical backbone behind everything else on this page. It asks a question that is rarely posed in our field: what if the limitations we observe in current AI systems are not merely technical, but inherited? Inherited from the very psychological theories that inspired them.</p>
 
 <p style="text-align: justify;">Behaviorism gave us reinforcement learning, but also its blindness to the internal structure of knowledge. Cognitivism gave rise to deep learning, but compressed representations into opaque parameter spaces that resist principled update. Constructivism influenced curriculum learning, yet we still lack a formal account of how new understanding is constructed from existing components.</p>
 
-<p style="text-align: justify;">The paper traces this genealogy — from psychological paradigm to AI method — and diagnoses the structural constraints each paradigm carried into its artificial offspring. It also examines a cross-cultural divergence in the interpretation of rote learning: the Eastern conception of memorization as a structured, multi-phase precursor to understanding offers a bridge between psychological theory and AI methodology that remains largely unexploited.</p>
+<p style="text-align: justify;">The paper traces this genealogy from psychological paradigm to AI method, and diagnoses the structural constraints each paradigm carried into its artificial offspring. It also examines a cross-cultural divergence in the interpretation of rote learning: the Eastern conception of memorization as a structured, multi-phase precursor to understanding offers a bridge between psychological theory and AI methodology that remains largely unexploited.</p>
 
 <p style="text-align: justify;">From this analysis emerges <b>ReSynth</b>, a trimodular framework that separates three architecturally independent components:</p>
 
-- **Intellect** — the reasoning mechanism
-- **Identity** — the purpose and directional coherence
-- **Memory** — the knowledge substrate
+- **Intellect** - the reasoning mechanism
+- **Identity** - the purpose and directional coherence
+- **Memory** - the knowledge substrate
 
-<p style="text-align: justify;">The central argument is that adaptability — the challenge at the heart of artificial general intelligence — requires a representational architecture in which systematic behavior is a <i>necessary consequence</i> rather than an accidental property.</p>
+<p style="text-align: justify;">The central argument is that adaptability, the challenge at the heart of artificial general intelligence requires a representational architecture in which systematic behavior is a <i>necessary consequence</i> rather than an accidental property.</p>
 
 <p style="text-align: justify;">A white paper expanding this framework is currently in preparation.</p>
 
-<p style="text-align: justify;">An interactive evaluation demo is available — it walks through the paper's genealogy from psychology to AI, the rote learning reappraisal, the structural diagnosis of each paradigm, and the ReSynth trimodular architecture. It also includes an interactive scoring tool for reviewers and readers to assess the work across six criteria.</p>
+<p style="text-align: justify;">An interactive evaluation demo is available, it walks through the paper's genealogy from psychology to AI, the rote learning reappraisal, the structural diagnosis of each paradigm, and the ReSynth trimodular architecture. It also includes an interactive scoring tool for reviewers and readers to assess the work across six criteria.</p>
 
 <br/>
 **Links:** [arXiv](https://arxiv.org/abs/2603.18203) · [PDF](https://arxiv.org/pdf/2603.18203) · [Evaluation Demo](https://github.com/anvix9/resynth-evaluation-demo/tree/main)
@@ -59,7 +59,7 @@ ______
 
 <p style="text-align: justify;">The central question was simple: why do we need tens of thousands of embedding vectors to represent a hundred papers? The answer turned out to be — we don't.</p>
 
-<p style="text-align: justify;">This pipeline compresses scientific papers into lightweight "paper-cards" (~5 KB each) using generated questions and queries. It replaces 44,809 chunk embeddings with just 109 vectors — roughly 80% storage reduction — while outperforming BM25 and fine-tuned baselines on both single-hop and multi-hop retrieval.</p>
+<p style="text-align: justify;">This pipeline compresses scientific papers into lightweight "paper-cards" (~5 KB each) using generated questions and queries. It replaces 44,809 chunk embeddings with just 109 vectors roughly 80% storage reduction — while outperforming BM25 and fine-tuned baselines on both single-hop and multi-hop retrieval.</p>
 
 <p style="text-align: justify;">The system introduces a syntactic reranking method that decomposes queries at POS boundaries and reranks passages by document frequency, all without any model fine-tuning.</p>
 
@@ -75,7 +75,7 @@ ______
 **Pipeline:** Paper Input (2–70 MB) → Section Extraction → Question Generation → Paper-Card (~5 KB) → Syntactic Reranking → Result
 
 <br/>
-**Links:** [GitHub](https://github.com/anvix9/question-knowledge-compression-rag) · [Paper (Preprint)](https://doi.org/10.20944/preprints202601.1757.v2)
+**Links:** [GitHub-Demo](https://github.com/anvix9/question-knowledge-compression-rag) · [Paper (Preprint)](https://doi.org/10.20944/preprints202601.1757.v2)
 
 ______
 
@@ -104,7 +104,7 @@ ______
 
 *Python Package for Research Paper Analysis*
 
-<p style="text-align: justify;">Sherlock-lit is a tool built out of necessity — part of the Haut ecosystem. It leverages NLP and LLMs to quickly extract the contributions and research questions from academic papers, generating concise markdown cards. It is designed to run efficiently on CPUs (under 70 MB), with optional GPU support.</p>
+<p style="text-align: justify;">Sherlock-lit is a tool built out of necessity, part of the Haut ecosystem. It leverages NLP and LLMs to quickly extract the contributions and research questions from academic papers, generating concise markdown cards. It is designed to run efficiently on CPUs (under 70 MB), with optional GPU support.</p>
 
 ```
 $ pip install sherlock-lit
