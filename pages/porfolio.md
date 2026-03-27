@@ -23,7 +23,7 @@ ______
 ### How Psychological Learning Paradigms Shaped and Constrained Artificial Intelligence
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Rembrandt_Harmensz._van_Rijn_038.jpg" alt="Philosopher in Meditation" width="300"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Filhol_1814.jpg" alt="Philosopher in Meditation" width="300"/>
     <figcaption>Fig.2: Philosopher in Meditation — Rembrandt van Rijn, 1632.</figcaption>
 </figure>
 <br/>
@@ -122,8 +122,8 @@ ______
 ## Publications
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/A_Philosopher_Lecturing_on_the_Orrery.jpg" alt="A Philosopher Lecturing on the Orrery" width="300"/>
-    <figcaption>Fig.4: A Philosopher Lecturing on the Orrery — Joseph Wright of Derby, 1766.</figcaption>
+    <img src="https://www.thoughtco.com/thmb/DlzsYR0whBb3taEl45YTviOZtxM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-11410491702-07f03ccd0eb54d36a9b62212cd2f55a1.jpg" alt="Plato - Allegory of the Cave" width="300"/>
+    <figcaption>Fig.4: Plato - Allegory of the Cave.</figcaption>
 </figure>
 <br/>
 
@@ -180,7 +180,7 @@ ______
 ## Education
 
 <figure style="text-align: center;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="300"/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Johannes_Vermeer_-_The_Astronomer_-_1668.jpg/3840px-Johannes_Vermeer_-_The_Astronomer_-_1668.jpg" alt="The Astronomer" width="300"/>
     <figcaption>Fig.6: The Astronomer — Johannes Vermeer, 1668.</figcaption>
 </figure>
 <br/>
