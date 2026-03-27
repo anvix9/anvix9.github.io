@@ -4,8 +4,6 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-# Portfolio
-
 <figure style="text-align: center;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg" alt="Wanderer above the Sea of Fog" width="300"/>
     <figcaption>Fig.1: Wanderer above the Sea of Fog — Caspar David Friedrich, 1818.</figcaption>
