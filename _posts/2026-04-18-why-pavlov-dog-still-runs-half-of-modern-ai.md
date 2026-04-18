@@ -19,7 +19,7 @@ tags: [Philosophy of science, AI, Machine learning, science, Learning Theories]
 
 <br/>
 <figure style="text-align: center;">
-    <img src="https://cdn.britannica.com/31/166131-004-9A7E454E.jpg" alt="Man sitting on a bench" width="200"/>
+    <img src="https://cdn.britannica.com/31/166131-004-9A7E454E.jpg" alt="Ivan Pavlov" width="300"/>
     <br />
     <figcaption>Ivan Pavlov.
     </figcaption>
@@ -190,7 +190,7 @@ But here is what Constructivism never quite solved, and AI has not solved either
 <p style="text-align: justify;">
 Looking at this together, something becomes clear. Each paradigm described a real aspect of learning:
 </p>
-
+<br/>
 <ul>
   <li>Behaviorism captured how conditioning shapes behavior through environment</li>
   <li>Cognitivism captured how information is processed, organized, and retrieved</li>
@@ -201,7 +201,7 @@ Looking at this together, something becomes clear. Each paradigm described a rea
 <p style="text-align: justify;">
 And machine learning has absorbed all three:
 </p>
-
+<br/>
 <ul>
   <li>Reinforcement Learning is applied Behaviorism</li>
   <li>Deep Learning is applied Cognitivism</li>
