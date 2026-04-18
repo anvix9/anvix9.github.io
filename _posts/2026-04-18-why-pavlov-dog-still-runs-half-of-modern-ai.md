@@ -2,7 +2,7 @@
 layout: post
 title:  "Why Pavlov's Dog Still Runs Half of Modern AI, and Why That's a Problem"
 date:   2026-04-18
-last_modified_at: 2025-04-18
+last_modified_at: 2026-04-18
 categories: [Learning Theory]
 tags: [Philosophy of science, AI, Machine learning, science, Learning Theories]
 ---
