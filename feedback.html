@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Feedback — SEEKER</title>
+<meta name="description" content="Share feedback on the research document you received from SEEKER. Help us improve the multi-agent deep research intelligence pipeline.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper:        #f4ede0;
+    --paper-warm:   #ede4d3;
+    --ink:          #1a1612;
+    --ink-soft:     #4a4036;
+    --ink-faint:    #8a7f72;
+    --rule:         #d4c8b5;
+    --accent:       #8b2e1f;
+    --accent-soft:  #b85a3c;
+    --moss:         #4a5d3a;
+    --gold:         #b08a3e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(139,46,31,0.025) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(74,93,58,0.02) 0%, transparent 40%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1, 0 0 0 0 0.08, 0 0 0 0 0.06, 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: auto, auto, 200px 200px;
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .masthead .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .masthead .brand .glyph { color: var(--accent); margin-right: 0.5rem; }
+  .masthead .brand a { color: var(--ink); text-decoration: none; }
+  .masthead .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .masthead .meta a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-faint);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  .masthead .meta a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hero {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+  }
+  .hero .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero .kicker::before, .hero .kicker::after {
+    content: ''; flex: 0 0 40px; height: 1px; background: var(--moss);
+  }
+  .hero .kicker::after { flex: 1; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--moss); font-weight: 400; }
+  .hero .lede {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    max-width: 640px;
+    line-height: 1.55;
+  }
+  .hero .lede .drop {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.6rem;
+    line-height: 0.9;
+    float: left;
+    padding: 0.3rem 0.7rem 0 0;
+    color: var(--moss);
+    font-weight: 600;
+  }
+
+  .ornament {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    color: var(--ink-faint);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+  }
+
+  .layout {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  .form-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .form-section .section-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 2rem;
+  }
+
+  .field { margin-bottom: 2rem; }
+  .field > label.main-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .field .main-label .req { color: var(--accent); margin-left: 0.2rem; }
+  .field .main-label .opt {
+    color: var(--ink-faint);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+  }
+  .field .hint {
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-top: 0.4rem;
+    font-family: 'Newsreader', serif;
+  }
+  .field input, .field textarea {
+    width: 100%;
+    background: rgba(255,253,247,0.6);
+    border: none;
+    border-bottom: 1px solid var(--ink-soft);
+    padding: 0.7rem 0.2rem;
+    font-family: 'Newsreader', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .field textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.6;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.9rem;
+    background: rgba(255,253,247,0.5);
+  }
+  .field input:focus, .field textarea:focus {
+    border-color: var(--moss);
+    background: rgba(255,253,247,0.95);
+  }
+
+  /* ---------- rating scales ---------- */
+  .rating {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+  .rating input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .rating label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.8rem 0.4rem;
+    border: 1px solid var(--rule);
+    background: rgba(255,253,247,0.5);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+    user-select: none;
+    min-height: 78px;
+  }
+  .rating label:hover {
+    border-color: var(--moss);
+    background: rgba(255,253,247,0.9);
+  }
+  .rating label .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .rating label .desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.2;
+  }
+  .rating input[type="radio"]:checked + label {
+    background: var(--moss);
+    border-color: var(--moss);
+  }
+  .rating input[type="radio"]:checked + label .num,
+  .rating input[type="radio"]:checked + label .desc {
+    color: var(--paper);
+  }
+
+  /* ---------- multi-checkbox lists (improvements) ---------- */
+  .checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.4rem 1rem;
+    margin-top: 0.6rem;
+  }
+  .checkboxes label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-family: 'Newsreader', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 0.4rem 0;
+    user-select: none;
+    line-height: 1.4;
+  }
+  .checkboxes input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    appearance: none;
+    border: 1px solid var(--ink-soft);
+    border-radius: 0;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    background: transparent;
+    margin-top: 4px;
+    transition: border-color 0.15s;
+  }
+  .checkboxes input[type="checkbox"]:hover { border-color: var(--moss); }
+  .checkboxes input[type="checkbox"]:checked {
+    background: var(--moss);
+    border-color: var(--moss);
+  }
+  .checkboxes input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    color: var(--paper);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ---------- single-select radios (recommend) ---------- */
+  .radios {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 0.6rem;
+  }
+  .radios input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .radios label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--rule);
+    background: rgba(255,253,247,0.5);
+    cursor: pointer;
+    font-family: 'Newsreader', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .radios label:hover {
+    border-color: var(--moss);
+    color: var(--ink);
+  }
+  .radios input[type="radio"]:checked + label {
+    background: var(--moss);
+    border-color: var(--moss);
+    color: var(--paper);
+  }
+
+  /* ---------- divider ---------- */
+  .section-divider {
+    margin: 3rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .section-divider h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+  }
+  .section-divider .sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ---------- submit ---------- */
+  .submit-row {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  button.submit {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 1.1rem 2.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-weight: 500;
+  }
+  button.submit:hover { background: var(--moss); }
+  button.submit:active { transform: translateY(1px); }
+  button.submit::after {
+    content: ' →';
+    transition: margin-left 0.2s;
+    display: inline-block;
+  }
+  button.submit:hover::after { margin-left: 0.3rem; }
+  .submit-note {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  /* ---------- sidebar ---------- */
+  aside.sidebar { position: sticky; top: 2rem; }
+  @media (max-width: 900px) { aside.sidebar { position: static; } }
+
+  .card {
+    background: rgba(255,253,247,0.7);
+    border: 1px solid var(--rule);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 3px;
+    background: var(--moss);
+  }
+  .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .card p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .card .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.5;
+    border-left: 2px solid var(--moss);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  .card .quote-attr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .notice {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--moss);
+    padding: 1rem 1.2rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .notice strong {
+    font-style: normal;
+    color: var(--moss);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 5rem;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  footer a:hover { color: var(--moss); border-color: var(--moss); }
+
+  /* ---------- modal ---------- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,22,18,0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-overlay.active { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 3rem 2.5rem;
+    max-width: 540px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .modal h2 .check { color: var(--moss); margin-right: 0.5rem; }
+  .modal p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .modal .next-step {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .modal .next-step a {
+    color: var(--moss);
+    text-decoration: none;
+    border-bottom: 1px solid var(--moss);
+    word-break: break-all;
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--ink-faint);
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--moss); }
+
+  .error-msg {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    font-style: italic;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand"><a href="/"><span class="glyph">❦</span> SEEKER</a></div>
+  <div class="meta">
+    <a href="/request/">submit a question</a> &nbsp;·&nbsp;
+    <a href="https://github.com/anvix9/basis_research_agents">github ↗</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="kicker">After-the-Fact Reflection · Help the System Improve</div>
+  <h1>You read the map.<br><em>Now tell us what was missing.</em></h1>
+  <p class="lede">
+    <span class="drop">T</span>he document you received is the output of an early-stage system. Your reflection — where it landed, where it fell short, what you wish it had done differently — is the most valuable thing you can offer back. Every answer below shapes the next iteration. Take as long or as little as you like.
+  </p>
+</section>
+
+<div class="ornament">❧ ❦ ❧</div>
+
+<div class="layout">
+
+  <section class="form-section">
+    <h2>The Reflection</h2>
+    <div class="section-sub">— Form B · Post-Delivery Feedback —</div>
+
+    <form id="feedback-form" novalidate>
+
+      <!-- ============ IDENTIFICATION ============ -->
+      <div class="field">
+        <label class="main-label" for="email">Your email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+        <div class="hint">The same one that received the document — so we can match this feedback to your run.</div>
+        <div class="error-msg" id="email-error">A valid email is required.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="run-id">Run ID <span class="opt">— optional but helpful</span></label>
+        <input type="text" id="run-id" name="run-id" placeholder="RUN-XXXXXXXX-XXXX" pattern="RUN-[A-Z0-9-]+">
+        <div class="hint">Look at the top of the document or the email subject line. Format: <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;">RUN-20260407-022355-242D</code>.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="question-recap">The question you submitted <span class="opt">— optional</span></label>
+        <input type="text" id="question-recap" name="question-recap" placeholder="A few words to remind us which run this was about">
+      </div>
+
+      <!-- ============ RATINGS ============ -->
+      <div class="section-divider">
+        <h3>Rating the document</h3>
+        <div class="sub">— On a scale of one to five —</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Overall usefulness <span class="req">*</span></label>
+        <div class="hint" style="margin-top:0;">Did the document advance your understanding of the question?</div>
+        <div class="rating">
+          <div><input type="radio" id="useful-1" name="useful" value="1" required><label for="useful-1"><span class="num">1</span><span class="desc">Not at all</span></label></div>
+          <div><input type="radio" id="useful-2" name="useful" value="2"><label for="useful-2"><span class="num">2</span><span class="desc">A little</span></label></div>
+          <div><input type="radio" id="useful-3" name="useful" value="3"><label for="useful-3"><span class="num">3</span><span class="desc">Somewhat</span></label></div>
+          <div><input type="radio" id="useful-4" name="useful" value="4"><label for="useful-4"><span class="num">4</span><span class="desc">Very much</span></label></div>
+          <div><input type="radio" id="useful-5" name="useful" value="5"><label for="useful-5"><span class="num">5</span><span class="desc">Indispensable</span></label></div>
+        </div>
+        <div class="error-msg" id="useful-error">Please rate overall usefulness.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Quality of references <span class="req">*</span></label>
+        <div class="hint" style="margin-top:0;">Were the cited papers, books, and sources real, relevant, and well-chosen?</div>
+        <div class="rating">
+          <div><input type="radio" id="refs-1" name="refs" value="1" required><label for="refs-1"><span class="num">1</span><span class="desc">Many issues</span></label></div>
+          <div><input type="radio" id="refs-2" name="refs" value="2"><label for="refs-2"><span class="num">2</span><span class="desc">Some issues</span></label></div>
+          <div><input type="radio" id="refs-3" name="refs" value="3"><label for="refs-3"><span class="num">3</span><span class="desc">Mixed</span></label></div>
+          <div><input type="radio" id="refs-4" name="refs" value="4"><label for="refs-4"><span class="num">4</span><span class="desc">Mostly good</span></label></div>
+          <div><input type="radio" id="refs-5" name="refs" value="5"><label for="refs-5"><span class="num">5</span><span class="desc">Excellent</span></label></div>
+        </div>
+        <div class="error-msg" id="refs-error">Please rate the references.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Depth of the territory mapped <span class="req">*</span></label>
+        <div class="hint" style="margin-top:0;">Did it surface the major thinkers, debates, and traditions you'd expect?</div>
+        <div class="rating">
+          <div><input type="radio" id="depth-1" name="depth" value="1" required><label for="depth-1"><span class="num">1</span><span class="desc">Very shallow</span></label></div>
+          <div><input type="radio" id="depth-2" name="depth" value="2"><label for="depth-2"><span class="num">2</span><span class="desc">Thin</span></label></div>
+          <div><input type="radio" id="depth-3" name="depth" value="3"><label for="depth-3"><span class="num">3</span><span class="desc">Adequate</span></label></div>
+          <div><input type="radio" id="depth-4" name="depth" value="4"><label for="depth-4"><span class="num">4</span><span class="desc">Substantial</span></label></div>
+          <div><input type="radio" id="depth-5" name="depth" value="5"><label for="depth-5"><span class="num">5</span><span class="desc">Exceptional</span></label></div>
+        </div>
+        <div class="error-msg" id="depth-error">Please rate the depth.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Clarity and organization</label>
+        <div class="hint" style="margin-top:0;">Was the Understanding Map well-structured and readable?</div>
+        <div class="rating">
+          <div><input type="radio" id="clarity-1" name="clarity" value="1"><label for="clarity-1"><span class="num">1</span><span class="desc">Confusing</span></label></div>
+          <div><input type="radio" id="clarity-2" name="clarity" value="2"><label for="clarity-2"><span class="num">2</span><span class="desc">Muddled</span></label></div>
+          <div><input type="radio" id="clarity-3" name="clarity" value="3"><label for="clarity-3"><span class="num">3</span><span class="desc">Okay</span></label></div>
+          <div><input type="radio" id="clarity-4" name="clarity" value="4"><label for="clarity-4"><span class="num">4</span><span class="desc">Clear</span></label></div>
+          <div><input type="radio" id="clarity-5" name="clarity" value="5"><label for="clarity-5"><span class="num">5</span><span class="desc">Crystal clear</span></label></div>
+        </div>
+      </div>
+
+      <!-- ============ WHAT WORKED / DIDN'T ============ -->
+      <div class="section-divider">
+        <h3>What worked, what didn't</h3>
+        <div class="sub">— The specifics matter more than the scores —</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="best">What was most valuable about the document? <span class="req">*</span></label>
+        <textarea id="best" name="best" required placeholder="A particular section, a reference you wouldn't have found otherwise, an angle you hadn't considered, a single line that landed…"></textarea>
+        <div class="error-msg" id="best-error">Please share at least one thing that worked.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="worst">What disappointed you, or fell short? <span class="req">*</span></label>
+        <textarea id="worst" name="worst" required placeholder="A missing thinker, a shallow section, a wrong characterization, references that were off, structural issues, anything that frustrated you…"></textarea>
+        <div class="hint">Be candid. This is the most useful field on the page.</div>
+        <div class="error-msg" id="worst-error">Please share what fell short.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="missing">Who or what was missing?</label>
+        <textarea id="missing" name="missing" placeholder="Authors, schools of thought, debates, primary sources, counter-arguments, geographic or linguistic traditions you'd have expected to see…"></textarea>
+        <div class="hint">Even one or two names is gold. Naming a missing tradition helps tune the search.</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="errors">Any factual errors or hallucinations?</label>
+        <textarea id="errors" name="errors" placeholder="Misattributed quotes, fabricated references, wrong dates, mischaracterized arguments…"></textarea>
+        <div class="hint">If you spotted any reference that seems made up or any claim that's clearly wrong, please flag it here. Be as specific as you can.</div>
+      </div>
+
+      <!-- ============ IMPROVEMENT TARGETS ============ -->
+      <div class="section-divider">
+        <h3>Where to focus next</h3>
+        <div class="sub">— What should we improve first? —</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Which areas most need improvement? <span class="opt">— select any that apply</span></label>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="improve" value="reference-accuracy"> Reference accuracy & verification</label>
+          <label><input type="checkbox" name="improve" value="depth-of-coverage"> Depth of coverage on key thinkers</label>
+          <label><input type="checkbox" name="improve" value="historical-context"> Historical context & genealogy</label>
+          <label><input type="checkbox" name="improve" value="contemporary-debates"> Contemporary debates</label>
+          <label><input type="checkbox" name="improve" value="counter-arguments"> Counter-arguments & dissent</label>
+          <label><input type="checkbox" name="improve" value="primary-sources"> Primary sources (books, archives)</label>
+          <label><input type="checkbox" name="improve" value="non-anglophone"> Non-Anglophone scholarship</label>
+          <label><input type="checkbox" name="improve" value="reading-curriculum"> Reading curriculum tiers</label>
+          <label><input type="checkbox" name="improve" value="conceptual-map"> Conceptual map / definitions</label>
+          <label><input type="checkbox" name="improve" value="writing-quality"> Writing quality & tone</label>
+          <label><input type="checkbox" name="improve" value="structure"> Document structure & organization</label>
+          <label><input type="checkbox" name="improve" value="length"> Length (too long / too short)</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="ideal">If you could change one thing, what would it be?</label>
+        <textarea id="ideal" name="ideal" placeholder="The single highest-leverage improvement, in your view…"></textarea>
+      </div>
+
+      <!-- ============ USE & RECOMMEND ============ -->
+      <div class="section-divider">
+        <h3>Use &amp; recommendation</h3>
+        <div class="sub">— Closing two questions —</div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Did you use the document for what you intended?</label>
+        <div class="radios">
+          <div><input type="radio" id="used-yes" name="used" value="yes"><label for="used-yes">Yes, fully</label></div>
+          <div><input type="radio" id="used-partial" name="used" value="partial"><label for="used-partial">Partially</label></div>
+          <div><input type="radio" id="used-no" name="used" value="no"><label for="used-no">Not really</label></div>
+          <div><input type="radio" id="used-pending" name="used" value="pending"><label for="used-pending">Still reading it</label></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="main-label">Would you recommend SEEKER to a colleague?</label>
+        <div class="radios">
+          <div><input type="radio" id="rec-yes" name="recommend" value="yes"><label for="rec-yes">Yes</label></div>
+          <div><input type="radio" id="rec-caveats" name="recommend" value="with-caveats"><label for="rec-caveats">Yes, with caveats</label></div>
+          <div><input type="radio" id="rec-not-yet" name="recommend" value="not-yet"><label for="rec-not-yet">Not yet</label></div>
+          <div><input type="radio" id="rec-no" name="recommend" value="no"><label for="rec-no">No</label></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="anything-else">Anything else you'd like the developer to know?</label>
+        <textarea id="anything-else" name="anything-else" placeholder="A future feature you'd love, a use case we should think about, an encouragement, a caution…"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="main-label" for="follow-up">Open to a follow-up conversation?</label>
+        <div class="radios">
+          <div><input type="radio" id="followup-yes" name="follow-up" value="yes"><label for="followup-yes">Yes — feel free to email me</label></div>
+          <div><input type="radio" id="followup-no" name="follow-up" value="no"><label for="followup-no">Prefer not</label></div>
+        </div>
+        <div class="hint">No follow-up by default. We'll only reach out if you opt in.</div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit">Send the reflection</button>
+        <p class="submit-note">Thank you for taking the time. Critical feedback is the most valuable contribution you can make to an early system.</p>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+
+    <div class="card">
+      <div class="quote">"The most useful feedback names a specific thing the document missed — a thinker, a debate, a wrong characterization."</div>
+      <div class="quote-attr">— What we look for</div>
+    </div>
+
+    <div class="card">
+      <h3>Where this goes</h3>
+      <p>Your feedback is filed as a GitHub issue tagged <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;background:var(--paper-warm);padding:1px 6px;border-radius:2px;">feedback</code>. Over time these become a public log of what the system gets wrong — which is itself a small contribution to evaluating LLM-driven research tools.</p>
+      <p>If you'd rather your feedback stay private, send it directly to the maintainer's email instead.</p>
+    </div>
+
+    <div class="notice">
+      <strong>Honest is better than nice</strong>
+      We can't fix what we can't see. If the document was disappointing, say so plainly — that's more useful than polite hedging. Specifics, even small ones, beat general impressions every time.
+    </div>
+
+  </aside>
+
+</div>
+
+<footer>
+  SEEKER · An open multi-agent research pipeline · Built at UNAM<br>
+  <a href="https://github.com/anvix9/basis_research_agents">github.com/basis_research_agents</a>
+</footer>
+
+<div class="modal-overlay" id="success-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">×</button>
+    <h2><span class="check">✓</span> One last step</h2>
+    <p>Your reflection has been prepared. The next step opens GitHub — please complete it there to file the feedback.</p>
+    <div class="next-step" id="next-step-content">
+      A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your feedback. If the tab didn't open, use the link below.
+    </div>
+    <p style="font-size:0.92rem;">Thank you. Genuinely. Every reflection sharpens what comes next.</p>
+  </div>
+</div>
+
+<script>
+  // === CONFIG — EDIT THESE TWO LINES ============================
+  const GITHUB_OWNER = 'anvix9';
+  const GITHUB_REPO  = 'basis_research_agents';
+  // ==============================================================
+
+  const form = document.getElementById('feedback-form');
+  const modal = document.getElementById('success-modal');
+  const modalClose = document.getElementById('modal-close');
+  const nextStepContent = document.getElementById('next-step-content');
+
+  function showError(id, show) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('show', show);
+  }
+
+  function getRadio(name) {
+    const el = form.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : '';
+  }
+
+  function validate() {
+    let ok = true;
+
+    const email = document.getElementById('email').value.trim();
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    showError('email-error', !emailValid);
+    if (!emailValid) ok = false;
+
+    const useful = getRadio('useful');
+    showError('useful-error', !useful);
+    if (!useful) ok = false;
+
+    const refs = getRadio('refs');
+    showError('refs-error', !refs);
+    if (!refs) ok = false;
+
+    const depth = getRadio('depth');
+    showError('depth-error', !depth);
+    if (!depth) ok = false;
+
+    const best = document.getElementById('best').value.trim();
+    showError('best-error', best.length < 3);
+    if (best.length < 3) ok = false;
+
+    const worst = document.getElementById('worst').value.trim();
+    showError('worst-error', worst.length < 3);
+    if (worst.length < 3) ok = false;
+
+    return ok;
+  }
+
+  function ratingLabel(v) {
+    return v ? `${v} / 5` : '—';
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!validate()) {
+      const firstError = document.querySelector('.error-msg.show');
+      if (firstError) firstError.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    const email        = document.getElementById('email').value.trim();
+    const runId        = document.getElementById('run-id').value.trim();
+    const questionRecap= document.getElementById('question-recap').value.trim();
+    const useful       = getRadio('useful');
+    const refs         = getRadio('refs');
+    const depth        = getRadio('depth');
+    const clarity      = getRadio('clarity');
+    const best         = document.getElementById('best').value.trim();
+    const worst        = document.getElementById('worst').value.trim();
+    const missing      = document.getElementById('missing').value.trim();
+    const errors       = document.getElementById('errors').value.trim();
+    const improve      = Array.from(form.querySelectorAll('input[name="improve"]:checked')).map(cb => cb.value);
+    const ideal        = document.getElementById('ideal').value.trim();
+    const used         = getRadio('used');
+    const recommend    = getRadio('recommend');
+    const anythingElse = document.getElementById('anything-else').value.trim();
+    const followUp     = getRadio('follow-up');
+
+    const titleTag = runId ? `[Feedback · ${runId}]` : '[Feedback]';
+    const titleSummary = questionRecap
+      ? (questionRecap.length > 50 ? questionRecap.slice(0, 50) + '…' : questionRecap)
+      : `usefulness ${useful}/5, refs ${refs}/5, depth ${depth}/5`;
+    const title = `${titleTag} ${titleSummary}`;
+
+    const body = [
+      `## Feedback on Research Document`,
+      ``,
+      `**Submitted:** ${new Date().toISOString().split('T')[0]}`,
+      `**Email:** ${email}`,
+      `**Run ID:** ${runId || '_(not provided)_'}`,
+      `**Question:** ${questionRecap || '_(not provided)_'}`,
+      ``,
+      `### Ratings`,
+      ``,
+      `| Dimension | Score |`,
+      `|---|---|`,
+      `| Overall usefulness   | **${ratingLabel(useful)}** |`,
+      `| Reference quality    | **${ratingLabel(refs)}** |`,
+      `| Depth of territory   | **${ratingLabel(depth)}** |`,
+      `| Clarity & structure  | ${ratingLabel(clarity)} |`,
+      ``,
+      `### What worked best`,
+      ``,
+      best,
+      ``,
+      `### What fell short`,
+      ``,
+      worst,
+      ``,
+      `### What was missing`,
+      ``,
+      missing || '_(none provided)_',
+      ``,
+      `### Factual errors / hallucinations flagged`,
+      ``,
+      errors || '_(none provided)_',
+      ``,
+      `### Improvement priorities`,
+      ``,
+      improve.length ? improve.map(i => `- ${i}`).join('\n') : '_(none selected)_',
+      ``,
+      `### One thing to change`,
+      ``,
+      ideal || '_(none provided)_',
+      ``,
+      `### Use & recommendation`,
+      ``,
+      `- **Used as intended:** ${used || '—'}`,
+      `- **Would recommend:** ${recommend || '—'}`,
+      `- **Open to follow-up:** ${followUp || '—'}`,
+      ``,
+      `### Anything else`,
+      ``,
+      anythingElse || '_(none provided)_',
+      ``,
+      `---`,
+      `_Submitted via the SEEKER feedback page._`
+    ].join('\n');
+
+    const url =
+      `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new` +
+      `?title=${encodeURIComponent(title)}` +
+      `&body=${encodeURIComponent(body)}` +
+      `&labels=feedback`;
+
+    const opened = window.open(url, '_blank', 'noopener');
+
+    nextStepContent.innerHTML = opened
+      ? `A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your feedback. If the tab didn't open, <a href="${url}" target="_blank" rel="noopener">click here</a>.`
+      : `Your reflection is ready. <a href="${url}" target="_blank" rel="noopener">Open GitHub to submit it →</a>`;
+
+    modal.classList.add('active');
+  });
+
+  modalClose.addEventListener('click', () => modal.classList.remove('active'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modal.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

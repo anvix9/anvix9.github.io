@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Research Question — SEEKER</title>
+<meta name="description" content="Submit a research question to SEEKER, a multi-agent deep research intelligence pipeline. Free testing access for researchers in social sciences, humanities, philosophy, and computer science.">
+
+<!-- Fonts: Cormorant Garamond (display serif) + Newsreader (body serif) + JetBrains Mono (technical) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper:        #f4ede0;
+    --paper-warm:   #ede4d3;
+    --ink:          #1a1612;
+    --ink-soft:     #4a4036;
+    --ink-faint:    #8a7f72;
+    --rule:         #d4c8b5;
+    --accent:       #8b2e1f;     /* oxblood */
+    --accent-soft:  #b85a3c;
+    --moss:         #4a5d3a;
+    --gold:         #b08a3e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    min-height: 100vh;
+    /* subtle paper grain */
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(139,46,31,0.025) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(74,93,58,0.02) 0%, transparent 40%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1, 0 0 0 0 0.08, 0 0 0 0 0.06, 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: auto, auto, 200px 200px;
+  }
+
+  ::selection { background: var(--accent); color: var(--paper); }
+
+  /* ---------- header ---------- */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .masthead .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .masthead .brand .glyph {
+    color: var(--accent);
+    margin-right: 0.5rem;
+  }
+  .masthead .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .masthead .meta a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-faint);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  .masthead .meta a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+  }
+  .hero .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero .kicker::before,
+  .hero .kicker::after {
+    content: '';
+    flex: 0 0 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero .kicker::after { flex: 1; }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .hero .lede {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    max-width: 640px;
+    line-height: 1.55;
+  }
+  .hero .lede .drop {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.6rem;
+    line-height: 0.9;
+    float: left;
+    padding: 0.3rem 0.7rem 0 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ---------- divider ornament ---------- */
+  .ornament {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    color: var(--ink-faint);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* ---------- main grid ---------- */
+  .layout {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ---------- form column ---------- */
+  .form-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .form-section .section-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 2rem;
+  }
+
+  .field {
+    margin-bottom: 1.8rem;
+  }
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .field label .req {
+    color: var(--accent);
+    margin-left: 0.2rem;
+  }
+  .field .hint {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-top: 0.4rem;
+    font-family: 'Newsreader', serif;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: rgba(255,253,247,0.6);
+    border: none;
+    border-bottom: 1px solid var(--ink-soft);
+    padding: 0.7rem 0.2rem;
+    font-family: 'Newsreader', serif;
+    font-size: 1.05rem;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .field textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.9rem;
+    background: rgba(255,253,247,0.5);
+  }
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%234a4036' stroke-width='1.5' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 2rem;
+    cursor: pointer;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--accent);
+    background: rgba(255,253,247,0.95);
+  }
+
+  /* discipline checkboxes */
+  .disciplines {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.4rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .disciplines label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Newsreader', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 0.3rem 0;
+    user-select: none;
+  }
+  .disciplines input[type="checkbox"] {
+    width: auto;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--ink-soft);
+    border-radius: 0;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    background: transparent;
+    transition: border-color 0.15s;
+  }
+  .disciplines input[type="checkbox"]:hover {
+    border-color: var(--accent);
+  }
+  .disciplines input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .disciplines input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    color: var(--paper);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* category headers in disciplines */
+  .discipline-group {
+    margin-bottom: 1.2rem;
+  }
+  .discipline-group .group-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  /* submit */
+  .submit-row {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  button.submit {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 1.1rem 2.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-weight: 500;
+    position: relative;
+  }
+  button.submit:hover {
+    background: var(--accent);
+  }
+  button.submit:active {
+    transform: translateY(1px);
+  }
+  button.submit::after {
+    content: ' →';
+    transition: margin-left 0.2s;
+    display: inline-block;
+  }
+  button.submit:hover::after {
+    margin-left: 0.3rem;
+  }
+  .submit-note {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  /* ---------- sidebar ---------- */
+  aside.sidebar {
+    position: sticky;
+    top: 2rem;
+  }
+  @media (max-width: 900px) {
+    aside.sidebar { position: static; }
+  }
+  .card {
+    background: rgba(255,253,247,0.7);
+    border: 1px solid var(--rule);
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 3px;
+    background: var(--accent);
+  }
+  .card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .card p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+  }
+  .card p:last-child { margin-bottom: 0; }
+
+  .timeline {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .timeline li {
+    position: relative;
+    padding-left: 2.4rem;
+    padding-bottom: 1.2rem;
+    counter-increment: step;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .timeline li:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 22px;
+    bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+  .timeline li::after {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--ink-soft);
+    background: var(--paper);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink);
+  }
+  .timeline li strong {
+    display: block;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .notice {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.2rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .notice strong {
+    font-style: normal;
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--gold);
+  }
+
+  /* ---------- example queries ---------- */
+  .examples {
+    max-width: 980px;
+    margin: 4rem auto 2rem;
+    padding: 0 2rem;
+  }
+  .examples h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .example-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .example {
+    border-left: 2px solid var(--accent);
+    padding: 0.4rem 0 0.4rem 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    margin-top: 5rem;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- modal (post-submit) ---------- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,22,18,0.85);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-overlay.active { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 3rem 2.5rem;
+    max-width: 540px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .modal h2 .check {
+    color: var(--moss);
+    margin-right: 0.5rem;
+  }
+  .modal p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .modal .next-step {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .modal .next-step a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    word-break: break-all;
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--ink-faint);
+    transition: color 0.2s;
+  }
+  .modal-close:hover { color: var(--accent); }
+
+  /* error message */
+  .error-msg {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+    font-style: italic;
+    display: none;
+  }
+  .error-msg.show { display: block; }
+</style>
+</head>
+<body>
+
+<!-- masthead -->
+<header class="masthead">
+  <div class="brand"><span class="glyph">❦</span> SEEKER</div>
+  <div class="meta">
+    <span>vol. ten · iss. four</span> &nbsp;·&nbsp;
+    <a href="https://github.com/anvix9/basis_research_agents">github ↗</a>
+  </div>
+</header>
+
+<!-- hero -->
+<section class="hero">
+  <div class="kicker">Public Testing Programme · Free of Charge</div>
+  <h1>Submit a research question.<br><em>Receive a map.</em></h1>
+  <p class="lede">
+    <span class="drop">S</span>EEKER is a multi-agent deep-research pipeline that maps the intellectual territory around a research question — building a traceable argument tree across ten or more live academic sources. It does not write your paper. It hands you the lay of the land so you can navigate it yourself.
+  </p>
+</section>
+
+<div class="ornament">❧ ❦ ❧</div>
+
+<!-- main layout -->
+<div class="layout">
+
+  <!-- FORM -->
+  <section class="form-section">
+    <h2>The Petition</h2>
+    <div class="section-sub">— Form A · Research Request —</div>
+
+    <form id="research-form" novalidate>
+
+      <div class="field">
+        <label for="name">Your name <span class="req">*</span></label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+
+      <div class="field">
+        <label for="email">Email for delivery <span class="req">*</span></label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+        <div class="hint">The Understanding Map and research brief will arrive here.</div>
+        <div class="error-msg" id="email-error">A valid email is required.</div>
+      </div>
+
+      <div class="field">
+        <label for="affiliation">Affiliation <span style="color:var(--ink-faint);font-weight:400;">— optional</span></label>
+        <input type="text" id="affiliation" name="affiliation" autocomplete="organization" placeholder="University, institute, or independent">
+      </div>
+
+      <div class="field">
+        <label>Field of inquiry <span class="req">*</span></label>
+        <div class="hint" style="margin-bottom:0.8rem;margin-top:0;">Select all that apply. SEEKER currently accepts questions in the disciplines below. Medical and clinical questions are coming soon.</div>
+
+        <div class="discipline-group">
+          <div class="group-name">Social Sciences</div>
+          <div class="disciplines">
+            <label><input type="checkbox" name="discipline" value="Political Science"> Political Science</label>
+            <label><input type="checkbox" name="discipline" value="Sociology"> Sociology</label>
+            <label><input type="checkbox" name="discipline" value="Anthropology"> Anthropology</label>
+            <label><input type="checkbox" name="discipline" value="Economics"> Economics</label>
+            <label><input type="checkbox" name="discipline" value="Psychology"> Psychology</label>
+            <label><input type="checkbox" name="discipline" value="Geography"> Human Geography</label>
+            <label><input type="checkbox" name="discipline" value="International Relations"> International Relations</label>
+            <label><input type="checkbox" name="discipline" value="Public Policy"> Public Policy</label>
+          </div>
+        </div>
+
+        <div class="discipline-group">
+          <div class="group-name">Humanities</div>
+          <div class="disciplines">
+            <label><input type="checkbox" name="discipline" value="Philosophy"> Philosophy</label>
+            <label><input type="checkbox" name="discipline" value="History"> History</label>
+            <label><input type="checkbox" name="discipline" value="Literature"> Literary Studies</label>
+            <label><input type="checkbox" name="discipline" value="Linguistics"> Linguistics</label>
+            <label><input type="checkbox" name="discipline" value="Religious Studies"> Religious Studies</label>
+            <label><input type="checkbox" name="discipline" value="Cultural Studies"> Cultural Studies</label>
+            <label><input type="checkbox" name="discipline" value="Art History"> Art History</label>
+            <label><input type="checkbox" name="discipline" value="Classics"> Classics</label>
+          </div>
+        </div>
+
+        <div class="discipline-group">
+          <div class="group-name">Law &amp; Ethics</div>
+          <div class="disciplines">
+            <label><input type="checkbox" name="discipline" value="Legal Studies"> Legal Studies</label>
+            <label><input type="checkbox" name="discipline" value="Ethics"> Ethics &amp; Bioethics</label>
+            <label><input type="checkbox" name="discipline" value="Human Rights"> Human Rights</label>
+            <label><input type="checkbox" name="discipline" value="Constitutional Law"> Constitutional Law</label>
+          </div>
+        </div>
+
+        <div class="discipline-group">
+          <div class="group-name">Computing &amp; Information</div>
+          <div class="disciplines">
+            <label><input type="checkbox" name="discipline" value="Computer Science"> Computer Science</label>
+            <label><input type="checkbox" name="discipline" value="AI / ML"> AI &amp; Machine Learning</label>
+            <label><input type="checkbox" name="discipline" value="HCI"> Human-Computer Interaction</label>
+            <label><input type="checkbox" name="discipline" value="Information Science"> Information Science</label>
+            <label><input type="checkbox" name="discipline" value="Digital Humanities"> Digital Humanities</label>
+            <label><input type="checkbox" name="discipline" value="Science and Technology Studies"> Science &amp; Tech Studies</label>
+          </div>
+        </div>
+
+        <div class="discipline-group">
+          <div class="group-name">Interdisciplinary</div>
+          <div class="disciplines">
+            <label><input type="checkbox" name="discipline" value="Education"> Education</label>
+            <label><input type="checkbox" name="discipline" value="Communication"> Communication / Media</label>
+            <label><input type="checkbox" name="discipline" value="Gender Studies"> Gender Studies</label>
+            <label><input type="checkbox" name="discipline" value="Environmental Humanities"> Environmental Humanities</label>
+            <label><input type="checkbox" name="discipline" value="Cognitive Science"> Cognitive Science</label>
+            <label><input type="checkbox" name="discipline" value="Other"> Other (specify below)</label>
+          </div>
+        </div>
+        <div class="error-msg" id="discipline-error">Please select at least one discipline.</div>
+      </div>
+
+      <div class="field">
+        <label for="question">Your research question <span class="req">*</span></label>
+        <textarea id="question" name="question" required placeholder="e.g. How does collective memory shape political legitimacy in post-authoritarian transitions?"></textarea>
+        <div class="hint">A focused, well-framed question yields a richer map. One or two sentences is ideal.</div>
+        <div class="error-msg" id="question-error">Please describe your research question.</div>
+      </div>
+
+      <div class="field">
+        <label for="context">Context or motivation <span style="color:var(--ink-faint);font-weight:400;">— optional</span></label>
+        <textarea id="context" name="context" placeholder="What drew you to this question? Where are you in the research process? Any specific angles or thinkers you want emphasized?"></textarea>
+        <div class="hint">Helpful but not required. Two or three sentences is plenty.</div>
+      </div>
+
+      <div class="field">
+        <label for="purpose">Intended use</label>
+        <select id="purpose" name="purpose">
+          <option value="">— Select one —</option>
+          <option value="Personal exploration">Personal exploration / curiosity</option>
+          <option value="Thesis or dissertation">Thesis or dissertation work</option>
+          <option value="Paper or article">Paper or article in progress</option>
+          <option value="Course preparation">Course preparation / teaching</option>
+          <option value="Grant proposal">Grant or proposal preparation</option>
+          <option value="System evaluation">Evaluating SEEKER itself</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit">File the request</button>
+        <p class="submit-note">By submitting you agree that the resulting research artefacts may be anonymised and used to evaluate and improve the system.</p>
+      </div>
+
+    </form>
+  </section>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="card">
+      <h3>What you'll receive</h3>
+      <p>An <strong>Understanding Map</strong> in six sections: territory at a glance, intellectual genealogy, a tiered reading curriculum with active reading prompts, a conceptual map, the unresolved core, and Socratic self-assessment questions.</p>
+      <p>Plus the underlying argument tree and a verified reference list.</p>
+    </div>
+
+    <div class="card">
+      <h3>How it works</h3>
+      <ol class="timeline">
+        <li><strong>You submit</strong> — your question lands in the queue (a GitHub issue I review).</li>
+        <li><strong>I run SEEKER</strong> — the pipeline searches live academic sources and builds an argument tree across three human-in-the-loop checkpoints.</li>
+        <li><strong>You receive a document</strong> — Understanding Map and brief, sent to your email within the week.</li>
+      </ol>
+    </div>
+
+    <div class="notice">
+      <strong>Please be patient</strong>
+      Each run is processed by hand on a single machine. Demand is heavy and the queue is long. You will receive your document by email within the week — sometimes sooner, occasionally later. Thank you for testing an early system.
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- example questions -->
+<section class="examples">
+  <h3>— Example Questions That Work Well —</h3>
+  <div class="example-grid">
+    <div class="example">How did the concept of sovereignty evolve from Bodin to Schmitt, and what assumptions does it carry into contemporary debates on AI governance?</div>
+    <div class="example">What does the empirical literature say about the relationship between democratic backsliding and the erosion of independent judiciaries?</div>
+    <div class="example">Through what philosophical traditions has the notion of "authenticity" been articulated, and how do they speak to identity politics today?</div>
+    <div class="example">What are the dominant theoretical frameworks for studying algorithmic bias in machine-learning systems, and where do they disagree?</div>
+  </div>
+</section>
+
+<footer>
+  SEEKER · An open multi-agent research pipeline · Built at CIC-IPN<br>
+  <a href="https://github.com/anvix9/basis_research_agents">github.com/basis_research_agents</a>
+</footer>
+
+<!-- success modal -->
+<div class="modal-overlay" id="success-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">×</button>
+    <h2><span class="check">✓</span> Almost there</h2>
+    <p>Your request has been prepared. The next step opens GitHub — please complete it there to file the issue.</p>
+    <div class="next-step" id="next-step-content">
+      A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your request. If the tab didn't open, use the link below.
+    </div>
+    <p style="font-size:0.92rem;">You will receive a document by email within the week. Long queue, single operator — thank you for your patience.</p>
+  </div>
+</div>
+
+<script>
+  // === CONFIG ===================================================
+  // Replace OWNER/REPO with your actual GitHub repo (the one hosting SEEKER).
+  const GITHUB_OWNER = 'anvix9';
+  const GITHUB_REPO  = 'basis_research_agents';
+  // ==============================================================
+
+  const form = document.getElementById('research-form');
+  const modal = document.getElementById('success-modal');
+  const modalClose = document.getElementById('modal-close');
+  const nextStepContent = document.getElementById('next-step-content');
+
+  function showError(id, show) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('show', show);
+  }
+
+  function validate() {
+    let ok = true;
+
+    const email = document.getElementById('email').value.trim();
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    showError('email-error', !emailValid);
+    if (!emailValid) ok = false;
+
+    const question = document.getElementById('question').value.trim();
+    showError('question-error', question.length < 5);
+    if (question.length < 5) ok = false;
+
+    const checked = form.querySelectorAll('input[name="discipline"]:checked');
+    showError('discipline-error', checked.length === 0);
+    if (checked.length === 0) ok = false;
+
+    return ok;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!validate()) {
+      const firstError = document.querySelector('.error-msg.show');
+      if (firstError) firstError.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+
+    const name        = document.getElementById('name').value.trim();
+    const email       = document.getElementById('email').value.trim();
+    const affiliation = document.getElementById('affiliation').value.trim();
+    const question    = document.getElementById('question').value.trim();
+    const context     = document.getElementById('context').value.trim();
+    const purpose     = document.getElementById('purpose').value;
+    const disciplines = Array.from(form.querySelectorAll('input[name="discipline"]:checked'))
+                             .map(cb => cb.value);
+
+    const truncatedQ = question.length > 60 ? question.slice(0, 60) + '…' : question;
+    const title = `[Research Request] ${truncatedQ}`;
+
+    const body = [
+      `## Research Request`,
+      ``,
+      `**Submitted:** ${new Date().toISOString().split('T')[0]}`,
+      `**Name:** ${name || '—'}`,
+      `**Email:** ${email}`,
+      `**Affiliation:** ${affiliation || '—'}`,
+      `**Intended use:** ${purpose || '—'}`,
+      ``,
+      `### Field(s) of inquiry`,
+      disciplines.map(d => `- ${d}`).join('\n'),
+      ``,
+      `### Research question`,
+      ``,
+      question,
+      ``,
+      `### Context`,
+      ``,
+      context || '_(none provided)_',
+      ``,
+      `---`,
+      `_Submitted via the SEEKER public request page._`
+    ].join('\n');
+
+    const url =
+      `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new` +
+      `?title=${encodeURIComponent(title)}` +
+      `&body=${encodeURIComponent(body)}` +
+      `&labels=research-request`;
+
+    // Open the GitHub issue page
+    const opened = window.open(url, '_blank', 'noopener');
+
+    nextStepContent.innerHTML = opened
+      ? `A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your request. If the tab didn't open, <a href="${url}" target="_blank" rel="noopener">click here</a>.`
+      : `Your request is ready. <a href="${url}" target="_blank" rel="noopener">Open GitHub to submit it →</a>`;
+
+    modal.classList.add('active');
+  });
+
+  modalClose.addEventListener('click', () => modal.classList.remove('active'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') modal.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
