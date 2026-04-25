@@ -608,6 +608,9 @@
 
     <form id="feedback-form" novalidate>
 
+      <!-- honeypot: real users won't fill this; bots typically will -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+
       <!-- ============ IDENTIFICATION ============ -->
       <div class="field">
         <label class="main-label" for="email">Your email <span class="req">*</span></label>
@@ -802,8 +805,8 @@
 
     <div class="card">
       <h3>Where this goes</h3>
-      <p>Your feedback is filed as a GitHub issue tagged <code style="font-family:'JetBrains Mono',monospace;font-size:0.85em;background:var(--paper-warm);padding:1px 6px;border-radius:2px;">feedback</code>. Over time these become a public log of what the system gets wrong — which is itself a small contribution to evaluating LLM-driven research tools.</p>
-      <p>If you'd rather your feedback stay private, send it directly to the maintainer's email instead.</p>
+      <p>Your feedback is sent directly to the maintainer's inbox — no third-party platform, no public archive. It's read by a single person.</p>
+      <p>Recurring patterns across many submissions shape the next iteration of the pipeline. If you'd rather your feedback be kept entirely private, indicate that in the "anything else" field.</p>
     </div>
 
     <div class="notice">
@@ -823,25 +826,44 @@
 <div class="modal-overlay" id="success-modal">
   <div class="modal">
     <button class="modal-close" id="modal-close">×</button>
-    <h2><span class="check">✓</span> One last step</h2>
-    <p>Your reflection has been prepared. The next step opens GitHub — please complete it there to file the feedback.</p>
+    <h2><span class="check">✓</span> Reflection received</h2>
+    <p>Thank you. Your feedback has been delivered and will directly shape what comes next.</p>
     <div class="next-step" id="next-step-content">
-      A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your feedback. If the tab didn't open, use the link below.
+      <strong>What we do with this:</strong><br>
+      Every reflection is read carefully. Recurring themes shape the next iteration of the pipeline — which agents get reworked, which sources get added, which output sections get rewritten.
     </div>
-    <p style="font-size:0.92rem;">Thank you. Genuinely. Every reflection sharpens what comes next.</p>
+    <p style="font-size:0.92rem;font-style:italic;color:var(--ink-faint);">If you opted into a follow-up, we may reach out within a couple of weeks.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="error-modal">
+  <div class="modal">
+    <button class="modal-close" id="error-modal-close">×</button>
+    <h2 style="color:var(--accent);">Something went wrong</h2>
+    <p>Your feedback didn't go through. This is rare but it happens — usually a network hiccup.</p>
+    <div class="next-step" id="error-step-content">
+      Please try again in a moment. If it keeps failing, you can email your feedback directly using the fallback link below.
+    </div>
+    <p><a id="mailto-fallback" href="#" style="color:var(--moss);text-decoration:none;border-bottom:1px solid var(--moss);">→ Send by email instead</a></p>
   </div>
 </div>
 
 <script>
   // === CONFIG — EDIT THESE TWO LINES ============================
-  const GITHUB_OWNER = 'anvix9';
-  const GITHUB_REPO  = 'basis_research_agents';
+  // Your destination email for receiving feedback.
+  // First time: use the plain email; FormSubmit will send a one-time
+  // confirmation. Once confirmed, switch to the hashed alias FormSubmit
+  // gives you (recommended — keeps your email private).
+  const FORMSUBMIT_TARGET = 'epononanvi@gmail.com';
+  const FALLBACK_EMAIL    = 'epononanvi@gmail.com';
   // ==============================================================
 
   const form = document.getElementById('feedback-form');
-  const modal = document.getElementById('success-modal');
-  const modalClose = document.getElementById('modal-close');
-  const nextStepContent = document.getElementById('next-step-content');
+  const successModal = document.getElementById('success-modal');
+  const errorModal   = document.getElementById('error-modal');
+  const modalClose   = document.getElementById('modal-close');
+  const errorClose   = document.getElementById('error-modal-close');
+  const submitBtn    = form.querySelector('button.submit');
 
   function showError(id, show) {
     const el = document.getElementById(id);
@@ -884,18 +906,9 @@
     return ok;
   }
 
-  function ratingLabel(v) {
-    return v ? `${v} / 5` : '—';
-  }
+  function ratingLabel(v) { return v ? `${v} / 5` : '—'; }
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (!validate()) {
-      const firstError = document.querySelector('.error-msg.show');
-      if (firstError) firstError.scrollIntoView({behavior:'smooth', block:'center'});
-      return;
-    }
-
+  function buildPayload() {
     const email        = document.getElementById('email').value.trim();
     const runId        = document.getElementById('run-id').value.trim();
     const questionRecap= document.getElementById('question-recap').value.trim();
@@ -913,89 +926,96 @@
     const recommend    = getRadio('recommend');
     const anythingElse = document.getElementById('anything-else').value.trim();
     const followUp     = getRadio('follow-up');
+    const honey        = form.querySelector('input[name="_honey"]').value;
 
-    const titleTag = runId ? `[Feedback · ${runId}]` : '[Feedback]';
-    const titleSummary = questionRecap
-      ? (questionRecap.length > 50 ? questionRecap.slice(0, 50) + '…' : questionRecap)
-      : `usefulness ${useful}/5, refs ${refs}/5, depth ${depth}/5`;
-    const title = `${titleTag} ${titleSummary}`;
+    const titleTag = runId ? `[Feedback · ${runId}]` : '[SEEKER Feedback]';
+    const subject = `${titleTag} usefulness ${useful}/5 · refs ${refs}/5 · depth ${depth}/5`;
 
-    const body = [
-      `## Feedback on Research Document`,
-      ``,
-      `**Submitted:** ${new Date().toISOString().split('T')[0]}`,
-      `**Email:** ${email}`,
-      `**Run ID:** ${runId || '_(not provided)_'}`,
-      `**Question:** ${questionRecap || '_(not provided)_'}`,
-      ``,
-      `### Ratings`,
-      ``,
-      `| Dimension | Score |`,
-      `|---|---|`,
-      `| Overall usefulness   | **${ratingLabel(useful)}** |`,
-      `| Reference quality    | **${ratingLabel(refs)}** |`,
-      `| Depth of territory   | **${ratingLabel(depth)}** |`,
-      `| Clarity & structure  | ${ratingLabel(clarity)} |`,
-      ``,
-      `### What worked best`,
-      ``,
-      best,
-      ``,
-      `### What fell short`,
-      ``,
-      worst,
-      ``,
-      `### What was missing`,
-      ``,
-      missing || '_(none provided)_',
-      ``,
-      `### Factual errors / hallucinations flagged`,
-      ``,
-      errors || '_(none provided)_',
-      ``,
-      `### Improvement priorities`,
-      ``,
-      improve.length ? improve.map(i => `- ${i}`).join('\n') : '_(none selected)_',
-      ``,
-      `### One thing to change`,
-      ``,
-      ideal || '_(none provided)_',
-      ``,
-      `### Use & recommendation`,
-      ``,
-      `- **Used as intended:** ${used || '—'}`,
-      `- **Would recommend:** ${recommend || '—'}`,
-      `- **Open to follow-up:** ${followUp || '—'}`,
-      ``,
-      `### Anything else`,
-      ``,
-      anythingElse || '_(none provided)_',
-      ``,
-      `---`,
-      `_Submitted via the SEEKER feedback page._`
-    ].join('\n');
+    return {
+      _subject: subject,
+      _replyto: email,
+      _template: 'table',
+      _captcha: 'false',
+      _honey: honey,
+      'Submitted':            new Date().toISOString().split('T')[0],
+      'Email':                email,
+      'Run ID':               runId || '—',
+      'Question':             questionRecap || '—',
+      'Overall usefulness':   ratingLabel(useful),
+      'Reference quality':    ratingLabel(refs),
+      'Depth of territory':   ratingLabel(depth),
+      'Clarity & structure':  ratingLabel(clarity),
+      'What worked best':     best,
+      'What fell short':      worst,
+      'What was missing':     missing || '—',
+      'Errors flagged':       errors || '—',
+      'Improvement priorities': improve.length ? improve.join(', ') : '—',
+      'One thing to change':  ideal || '—',
+      'Used as intended':     used || '—',
+      'Would recommend':      recommend || '—',
+      'Open to follow-up':    followUp || '—',
+      'Anything else':        anythingElse || '—'
+    };
+  }
 
-    const url =
-      `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new` +
-      `?title=${encodeURIComponent(title)}` +
-      `&body=${encodeURIComponent(body)}` +
-      `&labels=feedback`;
+  function buildMailtoFallback() {
+    const p = buildPayload();
+    const lines = Object.entries(p)
+      .filter(([k]) => !k.startsWith('_'))
+      .map(([k, v]) => `${k}:\n${v}\n`)
+      .join('\n');
+    return `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent(p._subject)}&body=${encodeURIComponent(lines)}`;
+  }
 
-    const opened = window.open(url, '_blank', 'noopener');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validate()) {
+      const firstError = document.querySelector('.error-msg.show');
+      if (firstError) firstError.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
 
-    nextStepContent.innerHTML = opened
-      ? `A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your feedback. If the tab didn't open, <a href="${url}" target="_blank" rel="noopener">click here</a>.`
-      : `Your reflection is ready. <a href="${url}" target="_blank" rel="noopener">Open GitHub to submit it →</a>`;
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = 'Sending…';
 
-    modal.classList.add('active');
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(FORMSUBMIT_TARGET)}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(buildPayload())
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === 'false' || data.success === false) {
+        throw new Error(data.message || `HTTP ${res.status}`);
+      }
+      successModal.classList.add('active');
+      form.reset();
+    } catch (err) {
+      console.error('Submission failed:', err);
+      const link = document.getElementById('mailto-fallback');
+      if (link) link.href = buildMailtoFallback();
+      errorModal.classList.add('active');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
   });
 
-  modalClose.addEventListener('click', () => modal.classList.remove('active'));
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('active');
+  function closeModal(m) { m.classList.remove('active'); }
+  modalClose.addEventListener('click', () => closeModal(successModal));
+  errorClose.addEventListener('click', () => closeModal(errorModal));
+  [successModal, errorModal].forEach(m => {
+    m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); });
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') modal.classList.remove('active');
+    if (e.key === 'Escape') {
+      closeModal(successModal);
+      closeModal(errorModal);
+    }
   });
 </script>
 

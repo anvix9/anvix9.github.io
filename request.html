@@ -621,6 +621,9 @@
 
     <form id="research-form" novalidate>
 
+      <!-- honeypot: real users won't fill this; bots typically will -->
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+
       <div class="field">
         <label for="name">Your name <span class="req">*</span></label>
         <input type="text" id="name" name="name" required autocomplete="name">
@@ -753,7 +756,7 @@
     <div class="card">
       <h3>How it works</h3>
       <ol class="timeline">
-        <li><strong>You submit</strong> — your question lands in the queue (a GitHub issue We review).</li>
+        <li><strong>You submit</strong> — your question lands in the queue.</li>
         <li><strong>We run SEEKER</strong> — the pipeline searches live academic sources and builds an argument tree across three human-in-the-loop checkpoints.</li>
         <li><strong>You receive a document</strong> — Understanding Map and brief, sent to your email within the week.</li>
       </ol>
@@ -788,26 +791,47 @@
 <div class="modal-overlay" id="success-modal">
   <div class="modal">
     <button class="modal-close" id="modal-close">×</button>
-    <h2><span class="check">✓</span> Almost there</h2>
-    <p>Your request has been prepared. The next step opens GitHub — please complete it there to file the issue.</p>
+    <h2><span class="check">✓</span> Request received</h2>
+    <p>Your research question has been filed. You'll receive a confirmation email at the address you provided shortly.</p>
     <div class="next-step" id="next-step-content">
-      A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your request. If the tab didn't open, use the link below.
+      <strong>What happens next:</strong><br>
+      The pipeline runs by hand on a single machine. Your Understanding Map and research brief will arrive by email within the week. Long queue, single operator — thank you for your patience.
     </div>
-    <p style="font-size:0.92rem;">You will receive a document by email within the week. Long queue, single operator — thank you for your patience.</p>
+    <p style="font-size:0.92rem;font-style:italic;color:var(--ink-faint);">If anything looked off during submission, send a note directly to the maintainer.</p>
+  </div>
+</div>
+
+<!-- error modal (shown if submission fails) -->
+<div class="modal-overlay" id="error-modal">
+  <div class="modal">
+    <button class="modal-close" id="error-modal-close">×</button>
+    <h2 style="color:var(--accent);">Something went wrong</h2>
+    <p>The submission didn't go through. This is rare but it happens — usually a network hiccup.</p>
+    <div class="next-step" id="error-step-content">
+      Please try again in a moment. If it keeps failing, you can email your request directly using the fallback link below.
+    </div>
+    <p><a id="mailto-fallback" href="#" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);">→ Send by email instead</a></p>
   </div>
 </div>
 
 <script>
-  // === CONFIG ===================================================
-  // Replace OWNER/REPO with your actual GitHub repo (the one hosting SEEKER).
-  const GITHUB_OWNER = 'anvix9';
-  const GITHUB_REPO  = 'basis_research_agents';
+  // === CONFIG — EDIT THESE TWO LINES ============================
+  // Your destination email for receiving research requests.
+  // First time: use the plain email; FormSubmit will send a one-time
+  // confirmation. Once confirmed, you can switch to the hashed alias
+  // FormSubmit gives you (recommended — keeps your email private).
+  const FORMSUBMIT_TARGET = 'epononanvi@gmail.com';
+
+  // Where the visitor's email client jumps to if AJAX fails.
+  const FALLBACK_EMAIL    = 'epononanvi@example.com';
   // ==============================================================
 
   const form = document.getElementById('research-form');
-  const modal = document.getElementById('success-modal');
-  const modalClose = document.getElementById('modal-close');
-  const nextStepContent = document.getElementById('next-step-content');
+  const successModal = document.getElementById('success-modal');
+  const errorModal   = document.getElementById('error-modal');
+  const modalClose   = document.getElementById('modal-close');
+  const errorClose   = document.getElementById('error-modal-close');
+  const submitBtn    = form.querySelector('button.submit');
 
   function showError(id, show) {
     const el = document.getElementById(id);
@@ -833,7 +857,56 @@
     return ok;
   }
 
-  form.addEventListener('submit', function(e) {
+  function buildPayload() {
+    const name        = document.getElementById('name').value.trim();
+    const email       = document.getElementById('email').value.trim();
+    const affiliation = document.getElementById('affiliation').value.trim();
+    const question    = document.getElementById('question').value.trim();
+    const context     = document.getElementById('context').value.trim();
+    const purpose     = document.getElementById('purpose').value;
+    const honey       = form.querySelector('input[name="_honey"]').value;
+    const disciplines = Array.from(form.querySelectorAll('input[name="discipline"]:checked'))
+                             .map(cb => cb.value);
+
+    const truncatedQ = question.length > 60 ? question.slice(0, 60) + '…' : question;
+
+    return {
+      _subject: `[SEEKER] Research Request — ${truncatedQ}`,
+      _replyto: email,
+      _template: 'table',
+      _captcha: 'false',
+      _honey: honey,
+      'Submitted':       new Date().toISOString().split('T')[0],
+      'Name':            name,
+      'Email':           email,
+      'Affiliation':     affiliation || '—',
+      'Disciplines':     disciplines.join(', '),
+      'Research question': question,
+      'Context':         context || '—',
+      'Intended use':    purpose || '—'
+    };
+  }
+
+  function buildMailtoFallback() {
+    const p = buildPayload();
+    const lines = [
+      `Submitted: ${p['Submitted']}`,
+      `Name: ${p['Name']}`,
+      `Email: ${p['Email']}`,
+      `Affiliation: ${p['Affiliation']}`,
+      `Disciplines: ${p['Disciplines']}`,
+      `Intended use: ${p['Intended use']}`,
+      ``,
+      `Research question:`,
+      p['Research question'],
+      ``,
+      `Context:`,
+      p['Context']
+    ].join('\n');
+    return `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent(p._subject)}&body=${encodeURIComponent(lines)}`;
+  }
+
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
     if (!validate()) {
       const firstError = document.querySelector('.error-msg.show');
@@ -841,64 +914,48 @@
       return;
     }
 
-    const name        = document.getElementById('name').value.trim();
-    const email       = document.getElementById('email').value.trim();
-    const affiliation = document.getElementById('affiliation').value.trim();
-    const question    = document.getElementById('question').value.trim();
-    const context     = document.getElementById('context').value.trim();
-    const purpose     = document.getElementById('purpose').value;
-    const disciplines = Array.from(form.querySelectorAll('input[name="discipline"]:checked'))
-                             .map(cb => cb.value);
+    submitBtn.disabled = true;
+    const originalLabel = submitBtn.textContent;
+    submitBtn.textContent = 'Sending…';
 
-    const truncatedQ = question.length > 60 ? question.slice(0, 60) + '…' : question;
-    const title = `[Research Request] ${truncatedQ}`;
-
-    const body = [
-      `## Research Request`,
-      ``,
-      `**Submitted:** ${new Date().toISOString().split('T')[0]}`,
-      `**Name:** ${name || '—'}`,
-      `**Email:** ${email}`,
-      `**Affiliation:** ${affiliation || '—'}`,
-      `**Intended use:** ${purpose || '—'}`,
-      ``,
-      `### Field(s) of inquiry`,
-      disciplines.map(d => `- ${d}`).join('\n'),
-      ``,
-      `### Research question`,
-      ``,
-      question,
-      ``,
-      `### Context`,
-      ``,
-      context || '_(none provided)_',
-      ``,
-      `---`,
-      `_Submitted via the SEEKER public request page._`
-    ].join('\n');
-
-    const url =
-      `https://github.com/${GITHUB_OWNER}/${GITHUB_REPO}/issues/new` +
-      `?title=${encodeURIComponent(title)}` +
-      `&body=${encodeURIComponent(body)}` +
-      `&labels=research-request`;
-
-    // Open the GitHub issue page
-    const opened = window.open(url, '_blank', 'noopener');
-
-    nextStepContent.innerHTML = opened
-      ? `A new tab is opening to GitHub. Press <strong>Submit new issue</strong> to file your request. If the tab didn't open, <a href="${url}" target="_blank" rel="noopener">click here</a>.`
-      : `Your request is ready. <a href="${url}" target="_blank" rel="noopener">Open GitHub to submit it →</a>`;
-
-    modal.classList.add('active');
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(FORMSUBMIT_TARGET)}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(buildPayload())
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === 'false' || data.success === false) {
+        throw new Error(data.message || `HTTP ${res.status}`);
+      }
+      successModal.classList.add('active');
+      form.reset();
+    } catch (err) {
+      console.error('Submission failed:', err);
+      const link = document.getElementById('mailto-fallback');
+      if (link) link.href = buildMailtoFallback();
+      errorModal.classList.add('active');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
   });
 
-  modalClose.addEventListener('click', () => modal.classList.remove('active'));
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('active');
+  // modal close handlers
+  function closeModal(m) { m.classList.remove('active'); }
+  modalClose.addEventListener('click', () => closeModal(successModal));
+  errorClose.addEventListener('click', () => closeModal(errorModal));
+  [successModal, errorModal].forEach(m => {
+    m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); });
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') modal.classList.remove('active');
+    if (e.key === 'Escape') {
+      closeModal(successModal);
+      closeModal(errorModal);
+    }
   });
 </script>
 
