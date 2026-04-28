@@ -63,6 +63,7 @@ Psychology spent most of the 20th century arguing about how learning works. Thre
 <br/>
 
 ## Behaviorism: the Black Box School
+
 <br/>
 <figure style="text-align: center;">
     <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/07/15/18/pg-32-mod-art-theiner.jpg" width="300"/>
@@ -104,6 +105,7 @@ Modern RL systems face the same wall. Change the environment slightly for exampl
 <br/>
 
 ## Cognitivism: Opening the Black Box
+
 <br/>
 <figure style="text-align: center;">
     <img src="https://www.stargate-fusion.com/uploads/files/block/1129/2a14e74689246374eaff-block.jpg?v=363aa53d8114f38752c09ab3791120a8" width="300"/>
@@ -146,6 +148,7 @@ There is something uncomfortable about the fact that the most successful AI syst
 <br/>
 
 ## Constructivism: the Learner Builds the World
+
 <br/>
 <br/>
 <figure style="text-align: center;">
@@ -185,6 +188,7 @@ But here is what Constructivism never quite solved, and AI has not solved either
 <br/><br/>
 
 # What the Three Paradigms Have in Common and What None of Them Solved yet
+
 <br/>
 
 <p style="text-align: justify;">
@@ -236,6 +240,7 @@ This is the problem my research is trying to address but that is for another pos
 <br/><br/>
 
 # Why This Matters Right Now
+
 <br/>
 
 <p style="text-align: justify;">
@@ -265,6 +270,7 @@ Understanding where the ideas come from is not nostalgia. It is diagnosis.
 <br/><br/>
 
 # Conclusion
+
 <br/>
 
 <p style="text-align: justify;">
