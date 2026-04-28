@@ -30,11 +30,11 @@ tags: [Philosophy of science, AI, Machine learning, science, Learning Theories]
 <br/><br/>
 
 <p style="text-align: justify;">
-There is a dog that changed the history of science. And without knowing it, it also shaped the history of artificial intelligence.
+There is a dog that changed the history of science. And without knowing it, it also <mark>shaped the history of artificial intelligence</mark>.
 </p>
 <br/>
 <p style="text-align: justify;">
-You probably know the story. Ivan Pavlov, in the late 19th century, was studying digestion in dogs. He noticed something odd: his dogs would start salivating not just when food arrived, but when they heard the footsteps of the person who brought the food. The stimulus was not the food. It was the <em>association</em> with food. So he ran an experiment: ring a bell, present food, repeat. After enough repetitions, the bell alone was enough. The dog salivated at a sound.
+You probably know the story. Ivan Pavlov, in the late 19th century, was studying digestion in dogs. He noticed something odd: his dogs would start salivating not just when food arrived, but when they heard the footsteps of the person who brought the food. The stimulus was not the food. It was the <mark>association</mark> with food. So he ran an experiment: ring a bell, present food, repeat. After enough repetitions, the bell alone was enough. The dog salivated at a sound.
 </p>
 
 <br/>
@@ -44,7 +44,7 @@ Pavlov called this <strong>conditioning</strong>. Psychologists called it <stron
 
 <br/>
 <p style="text-align: justify;">
-I have been spending a lot of time lately thinking about where our ideas about machine learning actually come from. Not the mathematics, not the architectures, but the <em>deeper assumptions</em>, the ones so old they became invisible. What I found is that modern AI is, in large part, from philosophy but most concretely from psychology in disguise. And that disguise has hidden some fundamental problems from us.
+I have been spending a lot of time lately thinking about where our ideas about machine learning actually come from. Not the mathematics, not the architectures, but the <mark>deeper assumptions</mark>, the ones so old they became invisible. What I found is that modern AI is, in large part, from philosophy but most concretely from psychology in disguise. And that disguise has hidden some fundamental problems from us.
 </p>
 
 <br/>
@@ -73,17 +73,17 @@ Psychology spent most of the 20th century arguing about how learning works. Thre
 <br/> 
 <br/>
 <p style="text-align: justify;">
-Behaviorism made a radical bet: the mind is a black box, and we should not try to open it. What matters is what goes <em>in</em> and what comes <em>out</em>. Stimulus, response. Stimulus, response.
+Behaviorism made a radical bet: the mind is a <mark>black box</mark>, and we should not try to open it. What matters is what goes <em>in</em> and what comes <em>out</em>. Stimulus, response. Stimulus, response.
 </p>
 
 <br/>
 <p style="text-align: justify;">
-Pavlov's dog is the poster child. But the deeper figure is B.F. Skinner, who extended the idea to humans. Want a pigeon to press a lever? Reward it when it does. Want a student to memorize facts? Reward correct answers. The internal experience, what the pigeon <em>thinks</em>, what the student <em>feels</em>... is irrelevant. What matters is the observable behavior.
+Pavlov's dog is the poster child. But the deeper figure is B.F. Skinner, who extended the idea to humans. Want a pigeon to press a lever? Reward it when it does. Want a student to memorize facts? Reward correct answers. The internal experience, what the pigeon <em>thinks</em>, what the student <marks>feels</mark>... is irrelevant. What matters is the observable behavior.
 </p>
 
 <br/>
 <p style="text-align: justify;">
-The connection to Reinforcement Learning is almost embarrassingly direct. An agent acts in an environment. It receives a reward or a punishment. It adjusts its policy. Repeat. There is no internal model of the world, no introspection, no understanding but only the optimization of a reward signal. Some few factors of the environment condition the agent just as Pavlov conditioned his dog.
+The connection to Reinforcement Learning is almost embarrassingly direct. An agent acts in an environment. It receives a reward or a punishment. It adjusts its policy. Repeat. There is no internal model of the world, no introspection, no understanding but only the <mark>optimization of a reward signal</mark>. Some few factors of the environment condition the agent just as Pavlov conditioned his dog.
 </p>
 
 <br/>
@@ -93,7 +93,7 @@ This is kind of powerful. Reinforcement Learning has produced game-playing agent
 
 <br/>
 <p style="text-align: justify;">
-But here is the problem Behaviorism never solved, and Reinforcement Learning has not solved either: <strong>what happens when the reward signal runs out?</strong> A dog conditioned to salivate at a bell does not understand bells. It cannot generalize its knowledge of bells to door chimes or alarm clocks or simply the <strong>word</strong> "ding." It has learned an association, not a structure. And associations, without structure, cannot adapt to genuinely new situations.
+But here is the problem Behaviorism never solved, and Reinforcement Learning has not solved either: <strong>what happens when the reward signal runs out?</strong> A dog conditioned to salivate at a bell does not understand bells. It cannot generalize its knowledge of bells to door chimes or alarm clocks or simply the <mark>word</mark> "ding." It has learned an association, not a structure. And associations, without structure, cannot adapt to genuinely new situations.
 </p>
 
 <br/>
@@ -135,7 +135,7 @@ Think about what a neural network actually does. The input layer receives raw da
 
 <br/>
 <p style="text-align: justify;">
-Yet Cognitivism had its own fatal flaw, one that Deep Learning inherits perfectly: <strong>the internal representations are opaque.</strong> Cognitivism could describe the functional stages of information processing but could not directly observe them. Deep Learning produces embeddings that encode statistical structure but cannot be interpreted in terms of rules, logic, or meaning. We can measure what the network does. We cannot explain <em>why</em> it does it or predict when it will fail.
+Yet Cognitivism had its own fatal flaw, one that Deep Learning inherits perfectly: <mark>the internal representations are opaque.</mark> Cognitivism could describe the functional stages of information processing but could not directly observe them. Deep Learning produces embeddings that encode statistical structure but cannot be interpreted in terms of rules, logic, or meaning. We can measure what the network does. We cannot explain <em>why</em> it does it or predict when it will fail.
 </p>
 
 <br/>
@@ -158,7 +158,7 @@ There is something uncomfortable about the fact that the most successful AI syst
 
 <br/>
 <p style="text-align: justify;">
-Constructivism takes a different angle. It says: knowledge is not received, it is <em>constructed</em>. The learner does not passively absorb information, the learner actively builds representations of the world by connecting new experience to what they already know.
+Constructivism takes a different angle. It says: knowledge is not received, it is <mark>constructed</mark>. The learner does not passively absorb information, the learner actively builds representations of the world by connecting new experience to what they already know.
 </p>
 
 <br/>
@@ -210,7 +210,7 @@ And machine learning has absorbed all three:
 
 <br/>
 <p style="text-align: justify;">
-But there is something none of them solved yet, and something AI has therefore also not solved. None of them explained how a learner produces <em>systematic</em> behavior as a <em>necessary consequence</em> of its architecture (quite an obscure sentence right?).
+But there is something none of them solved yet, and something AI has therefore also not solved. None of them explained how a learner produces <mark>systematic</mark> behavior as a <em>necessary consequence</em> of its architecture (quite an obscure sentence right?).
 </p>
 
 <br/>
@@ -254,7 +254,7 @@ They fail when the distribution shifts, because they are Behaviorist at heart, c
 
 <br/>
 <p style="text-align: justify;">
-The techniques we use to patch these failures like Chain-of-Thought prompting, Retrieval-Augmented Generation, Reinforcement Learning from Human Feedback or newly seen Constitutional AI, are themselves borrowed from these same psychological or philosophy paradigms, applied as corrections after the fact. They work to a degree. But they do not resolve the underlying issue. They are treatments for symptoms, not cures for causes.
+The techniques we use to patch these failures like Chain-of-Thought prompting, Retrieval-Augmented Generation, Reinforcement Learning from Human Feedback or newly seen Constitutional AI, are themselves borrowed from these same psychological or philosophy paradigms, applied as corrections after the fact. They work to a degree. But they do not resolve the underlying issue. They are <mark>treatments</mark> for symptoms, not cures for causes.
 </p>
 
 <br/>
@@ -273,12 +273,12 @@ Pavlov's dog is still running. Every time a model learns by trial and error with
 
 <br/>
 <p style="text-align: justify;">
-This is not a criticism. These are genuine insights, translated into powerful tools. But the limits of those insights are also the limits of those tools.
+This is not a criticism. These are genuine insights we could use, translated into powerful tools. But the limits of those insights are also the limits of those tools.
 </p>
 
 <br/>
 <p style="text-align: justify;">
-The next post in this series will go deeper into one specific problem that emerges from all three paradigms, the problem of <em>systematicity</em> and why solving it requires something that none of Behaviorism, Cognitivism, or Constructivism could provide.
+The next post in this series will go deeper into one specific problem that emerges from all three paradigms, the problem of <em>systematicity</em> and why solving it requires something that none of Behaviorism, Cognitivism, or Constructivism could provide or at least, we missed during the ingestion of the concepts.
 </p>
 
 <br/>
