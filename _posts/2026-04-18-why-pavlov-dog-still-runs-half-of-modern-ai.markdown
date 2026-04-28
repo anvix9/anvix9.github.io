@@ -79,7 +79,7 @@ Behaviorism made a radical bet: the mind is a <mark>black box</mark>, and we sho
 
 <br/>
 <p style="text-align: justify;">
-Pavlov's dog is the poster child. But the deeper figure is B.F. Skinner, who extended the idea to humans. Want a pigeon to press a lever? Reward it when it does. Want a student to memorize facts? Reward correct answers. The internal experience, what the pigeon <em>thinks</em>, what the student <marks>feels</mark>... is irrelevant. What matters is the observable behavior.
+Pavlov's dog is the poster child. But the deeper figure is B.F. Skinner, who extended the idea to humans. Want a pigeon to press a lever? Reward it when it does. Want a student to memorize facts? Reward correct answers. The internal experience, what the pigeon <em>thinks</em>, what the student <mark>feels</mark>... is irrelevant. What matters is the observable behavior.
 </p>
 
 <br/>
